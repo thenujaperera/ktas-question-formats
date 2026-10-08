@@ -1,0 +1,927 @@
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Choosing a database for a new web service
+criteria: query speed, operational cost, team familiarity, scaling headroom
+------------------------------------------------------------------------
+  'query speed'          vs 'operational cost'      ->   3.000   ('query speed' is 3x more important than 'operational cost')
+  'query speed'          vs 'team familiarity'      ->   0.333   ('team familiarity' is 3x more important than 'query speed')
+  'query speed'          vs 'scaling headroom'      ->   0.333   ('scaling headroom' is 3x more important than 'query speed')
+  'operational cost'     vs 'team familiarity'      ->   0.333   ('team familiarity' is 3x more important than 'operational cost')
+  'operational cost'     vs 'scaling headroom'      ->   0.333   ('scaling headroom' is 3x more important than 'operational cost')
+  'team familiarity'     vs 'scaling headroom'      ->   1.000   ('team familiarity' and 'scaling headroom' are equally important)
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.057  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Prioritising bugs before a release
+criteria: users affected, severity, fix effort, regression risk
+------------------------------------------------------------------------
+  'users affected'       vs 'severity'              ->   0.333   ('severity' is 3x more important than 'users affected')
+  'users affected'       vs 'fix effort'            ->   9.000   ('users affected' is 9x more important than 'fix effort')
+  'users affected'       vs 'regression risk'       ->   3.000   ('users affected' is 3x more important than 'regression risk')
+  'severity'             vs 'fix effort'            ->   3.000   ('severity' is 3x more important than 'fix effort')
+  'severity'             vs 'regression risk'       ->   1.000   ('severity' and 'regression risk' are equally important)
+  'fix effort'           vs 'regression risk'       ->   0.111   ('regression risk' is 9x more important than 'fix effort')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.301  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Selecting a cloud region
+criteria: latency to users, price, compliance, service availability
+------------------------------------------------------------------------
+  'latency to users'     vs 'price'                 ->   3.000   ('latency to users' is 3x more important than 'price')
+  'latency to users'     vs 'compliance'            ->   1.000   ('latency to users' and 'compliance' are equally important)
+  'latency to users'     vs 'service availability'  ->   3.000   ('latency to users' is 3x more important than 'service availability')
+  'price'                vs 'compliance'            ->   1.000   ('price' and 'compliance' are equally important)
+  'price'                vs 'service availability'  ->   1.000   ('price' and 'service availability' are equally important)
+  'compliance'           vs 'service availability'  ->   9.000   ('compliance' is 9x more important than 'service availability')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.180  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Picking a frontend framework
+criteria: ecosystem size, learning curve, performance, long-term support
+------------------------------------------------------------------------
+  'ecosystem size'       vs 'learning curve'        ->   3.000   ('ecosystem size' is 3x more important than 'learning curve')
+  'ecosystem size'       vs 'performance'           ->   1.000   ('ecosystem size' and 'performance' are equally important)
+  'ecosystem size'       vs 'long-term support'     ->   1.000   ('ecosystem size' and 'long-term support' are equally important)
+  'learning curve'       vs 'performance'           ->   1.000   ('learning curve' and 'performance' are equally important)
+  'learning curve'       vs 'long-term support'     ->   1.000   ('learning curve' and 'long-term support' are equally important)
+  'performance'          vs 'long-term support'     ->   1.000   ('performance' and 'long-term support' are equally important)
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.057  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Choosing a laptop for development work
+criteria: battery life, price, build quality, screen
+------------------------------------------------------------------------
+  'battery life'         vs 'price'                 ->   1.000   ('battery life' and 'price' are equally important)
+  'battery life'         vs 'build quality'         ->   1.000   ('battery life' and 'build quality' are equally important)
+  'battery life'         vs 'screen'                ->   1.000   ('battery life' and 'screen' are equally important)
+  'price'                vs 'build quality'         ->   3.000   ('price' is 3x more important than 'build quality')
+  'price'                vs 'screen'                ->   1.000   ('price' and 'screen' are equally important)
+  'build quality'        vs 'screen'                ->   1.000   ('build quality' and 'screen' are equally important)
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.057  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Ranking features for next sprint
+criteria: customer demand, revenue impact, engineering cost, strategic fit
+------------------------------------------------------------------------
+  'customer demand'      vs 'revenue impact'        ->   1.000   ('customer demand' and 'revenue impact' are equally important)
+  'customer demand'      vs 'engineering cost'      ->   3.000   ('customer demand' is 3x more important than 'engineering cost')
+  'customer demand'      vs 'strategic fit'         ->   1.000   ('customer demand' and 'strategic fit' are equally important)
+  'revenue impact'       vs 'engineering cost'      ->   5.000   ('revenue impact' is 5x more important than 'engineering cost')
+  'revenue impact'       vs 'strategic fit'         ->   1.000   ('revenue impact' and 'strategic fit' are equally important)
+  'engineering cost'     vs 'strategic fit'         ->   1.000   ('engineering cost' and 'strategic fit' are equally important)
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.098  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Selecting a payment provider
+criteria: transaction fees, country coverage, integration effort, reliability
+------------------------------------------------------------------------
+  'transaction fees'     vs 'country coverage'      ->   0.333   ('country coverage' is 3x more important than 'transaction fees')
+  'transaction fees'     vs 'integration effort'    ->   3.000   ('transaction fees' is 3x more important than 'integration effort')
+  'transaction fees'     vs 'reliability'           ->   0.333   ('reliability' is 3x more important than 'transaction fees')
+  'country coverage'     vs 'integration effort'    ->   0.333   ('integration effort' is 3x more important than 'country coverage')
+  'country coverage'     vs 'reliability'           ->   1.000   ('country coverage' and 'reliability' are equally important)
+  'integration effort'   vs 'reliability'           ->   0.333   ('reliability' is 3x more important than 'integration effort')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.454  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.250  <-- FAILS the simple check
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Choosing a city to relocate to for work
+criteria: salary, cost of living, climate, distance from family
+------------------------------------------------------------------------
+  'salary'               vs 'cost of living'        ->   1.000   ('salary' and 'cost of living' are equally important)
+  'salary'               vs 'climate'               ->   3.000   ('salary' is 3x more important than 'climate')
+  'salary'               vs 'distance from family'  ->   3.000   ('salary' is 3x more important than 'distance from family')
+  'cost of living'       vs 'climate'               ->   1.000   ('cost of living' and 'climate' are equally important)
+  'cost of living'       vs 'distance from family'  ->   3.000   ('cost of living' is 3x more important than 'distance from family')
+  'climate'              vs 'distance from family'  ->   1.000   ('climate' and 'distance from family' are equally important)
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.057  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Evaluating a job offer
+criteria: compensation, learning opportunity, team quality, commute
+------------------------------------------------------------------------
+  'compensation'         vs 'learning opportunity'  ->   3.000   ('compensation' is 3x more important than 'learning opportunity')
+  'compensation'         vs 'team quality'          ->   1.000   ('compensation' and 'team quality' are equally important)
+  'compensation'         vs 'commute'               ->   3.000   ('compensation' is 3x more important than 'commute')
+  'learning opportunity' vs 'team quality'          ->   1.000   ('learning opportunity' and 'team quality' are equally important)
+  'learning opportunity' vs 'commute'               ->   1.000   ('learning opportunity' and 'commute' are equally important)
+  'team quality'         vs 'commute'               ->   3.000   ('team quality' is 3x more important than 'commute')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.057  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Choosing a logging and monitoring stack
+criteria: query flexibility, storage cost, setup effort, alerting quality
+------------------------------------------------------------------------
+  'query flexibility'    vs 'storage cost'          ->   3.000   ('query flexibility' is 3x more important than 'storage cost')
+  'query flexibility'    vs 'setup effort'          ->   3.000   ('query flexibility' is 3x more important than 'setup effort')
+  'query flexibility'    vs 'alerting quality'      ->   1.000   ('query flexibility' and 'alerting quality' are equally important)
+  'storage cost'         vs 'setup effort'          ->   0.333   ('setup effort' is 3x more important than 'storage cost')
+  'storage cost'         vs 'alerting quality'      ->   0.333   ('alerting quality' is 3x more important than 'storage cost')
+  'setup effort'         vs 'alerting quality'      ->   0.333   ('alerting quality' is 3x more important than 'setup effort')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.057  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Prioritising technical debt items
+criteria: slowdown caused, risk of outage, effort to fix, how often touched
+------------------------------------------------------------------------
+  'slowdown caused'      vs 'risk of outage'        ->   1.000   ('slowdown caused' and 'risk of outage' are equally important)
+  'slowdown caused'      vs 'effort to fix'         ->   3.000   ('slowdown caused' is 3x more important than 'effort to fix')
+  'slowdown caused'      vs 'how often touched'     ->   0.333   ('how often touched' is 3x more important than 'slowdown caused')
+  'risk of outage'       vs 'effort to fix'         ->   3.003   ('risk of outage' is 3x more important than 'effort to fix')
+  'risk of outage'       vs 'how often touched'     ->   9.000   ('risk of outage' is 9x more important than 'how often touched')
+  'effort to fix'        vs 'how often touched'     ->   0.333   ('how often touched' is 3x more important than 'effort to fix')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.454  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Selecting a supplier for office hardware
+criteria: unit price, delivery time, warranty terms, past reliability
+------------------------------------------------------------------------
+  'unit price'           vs 'delivery time'         ->   1.000   ('unit price' and 'delivery time' are equally important)
+  'unit price'           vs 'warranty terms'        ->   3.000   ('unit price' is 3x more important than 'warranty terms')
+  'unit price'           vs 'past reliability'      ->   0.333   ('past reliability' is 3x more important than 'unit price')
+  'delivery time'        vs 'warranty terms'        ->   3.000   ('delivery time' is 3x more important than 'warranty terms')
+  'delivery time'        vs 'past reliability'      ->   0.333   ('past reliability' is 3x more important than 'delivery time')
+  'warranty terms'       vs 'past reliability'      ->   1.000   ('warranty terms' and 'past reliability' are equally important)
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.243  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Choosing a machine learning model for production
+criteria: accuracy, inference latency, interpretability, retraining cost
+------------------------------------------------------------------------
+  'accuracy'             vs 'inference latency'     ->   1.000   ('accuracy' and 'inference latency' are equally important)
+  'accuracy'             vs 'interpretability'      ->   1.000   ('accuracy' and 'interpretability' are equally important)
+  'accuracy'             vs 'retraining cost'       ->   1.000   ('accuracy' and 'retraining cost' are equally important)
+  'inference latency'    vs 'interpretability'      ->   1.000   ('inference latency' and 'interpretability' are equally important)
+  'inference latency'    vs 'retraining cost'       ->   1.000   ('inference latency' and 'retraining cost' are equally important)
+  'interpretability'     vs 'retraining cost'       ->   1.000   ('interpretability' and 'retraining cost' are equally important)
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.000  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Picking a conference to attend
+criteria: topic relevance, networking value, travel cost, time away
+------------------------------------------------------------------------
+  'topic relevance'      vs 'networking value'      ->   0.333   ('networking value' is 3x more important than 'topic relevance')
+  'topic relevance'      vs 'travel cost'           ->   1.000   ('topic relevance' and 'travel cost' are equally important)
+  'topic relevance'      vs 'time away'             ->   3.000   ('topic relevance' is 3x more important than 'time away')
+  'networking value'     vs 'travel cost'           ->   3.003   ('networking value' is 3x more important than 'travel cost')
+  'networking value'     vs 'time away'             ->   1.000   ('networking value' and 'time away' are equally important)
+  'travel cost'          vs 'time away'             ->   0.333   ('time away' is 3x more important than 'travel cost')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.243  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Choosing an authentication approach
+criteria: security, user friction, implementation effort, vendor lock-in
+------------------------------------------------------------------------
+  'security'             vs 'user friction'         ->   3.000   ('security' is 3x more important than 'user friction')
+  'security'             vs 'implementation effort'  ->   3.000   ('security' is 3x more important than 'implementation effort')
+  'security'             vs 'vendor lock-in'        ->   1.000   ('security' and 'vendor lock-in' are equally important)
+  'user friction'        vs 'implementation effort'  ->   1.000   ('user friction' and 'implementation effort' are equally important)
+  'user friction'        vs 'vendor lock-in'        ->   3.000   ('user friction' is 3x more important than 'vendor lock-in')
+  'implementation effort' vs 'vendor lock-in'        ->   0.333   ('vendor lock-in' is 3x more important than 'implementation effort')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.243  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Selecting a project management tool
+criteria: ease of use, integrations, price per seat, reporting
+------------------------------------------------------------------------
+  'ease of use'          vs 'integrations'          ->   1.000   ('ease of use' and 'integrations' are equally important)
+  'ease of use'          vs 'price per seat'        ->   3.000   ('ease of use' is 3x more important than 'price per seat')
+  'ease of use'          vs 'reporting'             ->   1.000   ('ease of use' and 'reporting' are equally important)
+  'integrations'         vs 'price per seat'        ->   1.000   ('integrations' and 'price per seat' are equally important)
+  'integrations'         vs 'reporting'             ->   1.000   ('integrations' and 'reporting' are equally important)
+  'price per seat'       vs 'reporting'             ->   1.000   ('price per seat' and 'reporting' are equally important)
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.057  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Prioritising construction site risks
+criteria: likelihood, safety impact, schedule impact, cost to mitigate
+------------------------------------------------------------------------
+  'likelihood'           vs 'safety impact'         ->   0.111   ('safety impact' is 9x more important than 'likelihood')
+  'likelihood'           vs 'schedule impact'       ->   1.000   ('likelihood' and 'schedule impact' are equally important)
+  'likelihood'           vs 'cost to mitigate'      ->   3.000   ('likelihood' is 3x more important than 'cost to mitigate')
+  'safety impact'        vs 'schedule impact'       ->   9.000   ('safety impact' is 9x more important than 'schedule impact')
+  'safety impact'        vs 'cost to mitigate'      ->   6.993   ('safety impact' is 7x more important than 'cost to mitigate')
+  'schedule impact'      vs 'cost to mitigate'      ->   3.000   ('schedule impact' is 3x more important than 'cost to mitigate')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.087  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Choosing a material for a structural component
+criteria: strength, cost, embodied carbon, local availability
+------------------------------------------------------------------------
+  'strength'             vs 'cost'                  ->   1.000   ('strength' and 'cost' are equally important)
+  'strength'             vs 'embodied carbon'       ->   9.000   ('strength' is 9x more important than 'embodied carbon')
+  'strength'             vs 'local availability'    ->   9.000   ('strength' is 9x more important than 'local availability')
+  'cost'                 vs 'embodied carbon'       ->   3.000   ('cost' is 3x more important than 'embodied carbon')
+  'cost'                 vs 'local availability'    ->   3.000   ('cost' is 3x more important than 'local availability')
+  'embodied carbon'      vs 'local availability'    ->   1.000   ('embodied carbon' and 'local availability' are equally important)
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.057  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Selecting a third-party library
+criteria: maintenance activity, security history, bundle size, API quality
+------------------------------------------------------------------------
+  'maintenance activity' vs 'security history'      ->   0.333   ('security history' is 3x more important than 'maintenance activity')
+  'maintenance activity' vs 'bundle size'           ->   1.000   ('maintenance activity' and 'bundle size' are equally important)
+  'maintenance activity' vs 'API quality'           ->   1.000   ('maintenance activity' and 'API quality' are equally important)
+  'security history'     vs 'bundle size'           ->   1.000   ('security history' and 'bundle size' are equally important)
+  'security history'     vs 'API quality'           ->   3.000   ('security history' is 3x more important than 'API quality')
+  'bundle size'          vs 'API quality'           ->   0.333   ('API quality' is 3x more important than 'bundle size')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.180  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: qwen/qwen3.8-27b
+DECISION: Choosing a testing strategy
+criteria: defect detection, run time, maintenance burden, onboarding cost
+------------------------------------------------------------------------
+  'defect detection'     vs 'run time'              ->   1.000   ('defect detection' and 'run time' are equally important)
+  'defect detection'     vs 'maintenance burden'    ->   3.000   ('defect detection' is 3x more important than 'maintenance burden')
+  'defect detection'     vs 'onboarding cost'       ->   1.000   ('defect detection' and 'onboarding cost' are equally important)
+  'run time'             vs 'maintenance burden'    ->   0.333   ('maintenance burden' is 3x more important than 'run time')
+  'run time'             vs 'onboarding cost'       ->   0.333   ('onboarding cost' is 3x more important than 'run time')
+  'maintenance burden'   vs 'onboarding cost'       ->   3.000   ('maintenance burden' is 3x more important than 'onboarding cost')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.301  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Choosing a database for a new web service
+criteria: query speed, operational cost, team familiarity, scaling headroom
+------------------------------------------------------------------------
+  'query speed'          vs 'operational cost'      ->   3.000   ('query speed' is 3x more important than 'operational cost')
+  'query speed'          vs 'team familiarity'      ->   0.200   ('team familiarity' is 5x more important than 'query speed')
+  'query speed'          vs 'scaling headroom'      ->   0.200   ('scaling headroom' is 5x more important than 'query speed')
+  'operational cost'     vs 'team familiarity'      ->   1.000   ('operational cost' and 'team familiarity' are equally important)
+  'operational cost'     vs 'scaling headroom'      ->   0.200   ('scaling headroom' is 5x more important than 'operational cost')
+  'team familiarity'     vs 'scaling headroom'      ->   5.000   ('team familiarity' is 5x more important than 'scaling headroom')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.569  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Prioritising bugs before a release
+criteria: users affected, severity, fix effort, regression risk
+------------------------------------------------------------------------
+  'users affected'       vs 'severity'              ->   0.333   ('severity' is 3x more important than 'users affected')
+  'users affected'       vs 'fix effort'            ->   5.000   ('users affected' is 5x more important than 'fix effort')
+  'users affected'       vs 'regression risk'       ->   3.000   ('users affected' is 3x more important than 'regression risk')
+  'severity'             vs 'fix effort'            ->   0.333   ('fix effort' is 3x more important than 'severity')
+  'severity'             vs 'regression risk'       ->   0.333   ('regression risk' is 3x more important than 'severity')
+  'fix effort'           vs 'regression risk'       ->   0.200   ('regression risk' is 5x more important than 'fix effort')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.809  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.500  <-- FAILS the simple check
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Selecting a cloud region
+criteria: latency to users, price, compliance, service availability
+------------------------------------------------------------------------
+  'latency to users'     vs 'price'                 ->   5.000   ('latency to users' is 5x more important than 'price')
+  'latency to users'     vs 'compliance'            ->   5.000   ('latency to users' is 5x more important than 'compliance')
+  'latency to users'     vs 'service availability'  ->   3.000   ('latency to users' is 3x more important than 'service availability')
+  'price'                vs 'compliance'            ->   0.143   ('compliance' is 7x more important than 'price')
+  'price'                vs 'service availability'  ->   1.000   ('price' and 'service availability' are equally important)
+  'compliance'           vs 'service availability'  ->   5.000   ('compliance' is 5x more important than 'service availability')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.215  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Picking a frontend framework
+criteria: ecosystem size, learning curve, performance, long-term support
+------------------------------------------------------------------------
+  'ecosystem size'       vs 'learning curve'        ->   3.000   ('ecosystem size' is 3x more important than 'learning curve')
+  'ecosystem size'       vs 'performance'           ->   0.200   ('performance' is 5x more important than 'ecosystem size')
+  'ecosystem size'       vs 'long-term support'     ->   3.000   ('ecosystem size' is 3x more important than 'long-term support')
+  'learning curve'       vs 'performance'           ->   3.000   ('learning curve' is 3x more important than 'performance')
+  'learning curve'       vs 'long-term support'     ->   3.000   ('learning curve' is 3x more important than 'long-term support')
+  'performance'          vs 'long-term support'     ->   0.333   ('long-term support' is 3x more important than 'performance')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.886  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.500  <-- FAILS the simple check
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Choosing a laptop for development work
+criteria: battery life, price, build quality, screen
+------------------------------------------------------------------------
+  'battery life'         vs 'price'                 ->   5.000   ('battery life' is 5x more important than 'price')
+  'battery life'         vs 'build quality'         ->   3.000   ('battery life' is 3x more important than 'build quality')
+  'battery life'         vs 'screen'                ->   3.000   ('battery life' is 3x more important than 'screen')
+  'price'                vs 'build quality'         ->   3.000   ('price' is 3x more important than 'build quality')
+  'price'                vs 'screen'                ->   3.000   ('price' is 3x more important than 'screen')
+  'build quality'        vs 'screen'                ->   5.000   ('build quality' is 5x more important than 'screen')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.253  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Ranking features for next sprint
+criteria: customer demand, revenue impact, engineering cost, strategic fit
+------------------------------------------------------------------------
+  'customer demand'      vs 'revenue impact'        ->   3.000   ('customer demand' is 3x more important than 'revenue impact')
+  'customer demand'      vs 'engineering cost'      ->   5.000   ('customer demand' is 5x more important than 'engineering cost')
+  'customer demand'      vs 'strategic fit'         ->   1.000   ('customer demand' and 'strategic fit' are equally important)
+  'revenue impact'       vs 'engineering cost'      ->   5.000   ('revenue impact' is 5x more important than 'engineering cost')
+  'revenue impact'       vs 'strategic fit'         ->   0.333   ('strategic fit' is 3x more important than 'revenue impact')
+  'engineering cost'     vs 'strategic fit'         ->   1.000   ('engineering cost' and 'strategic fit' are equally important)
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.286  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Selecting a payment provider
+criteria: transaction fees, country coverage, integration effort, reliability
+------------------------------------------------------------------------
+  'transaction fees'     vs 'country coverage'      ->   0.333   ('country coverage' is 3x more important than 'transaction fees')
+  'transaction fees'     vs 'integration effort'    ->   3.000   ('transaction fees' is 3x more important than 'integration effort')
+  'transaction fees'     vs 'reliability'           ->   0.200   ('reliability' is 5x more important than 'transaction fees')
+  'country coverage'     vs 'integration effort'    ->   0.200   ('integration effort' is 5x more important than 'country coverage')
+  'country coverage'     vs 'reliability'           ->   3.000   ('country coverage' is 3x more important than 'reliability')
+  'integration effort'   vs 'reliability'           ->   0.200   ('reliability' is 5x more important than 'integration effort')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 1.071  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.500  <-- FAILS the simple check
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Choosing a city to relocate to for work
+criteria: salary, cost of living, climate, distance from family
+------------------------------------------------------------------------
+  'salary'               vs 'cost of living'        ->   0.333   ('cost of living' is 3x more important than 'salary')
+  'salary'               vs 'climate'               ->   5.000   ('salary' is 5x more important than 'climate')
+  'salary'               vs 'distance from family'  ->   5.000   ('salary' is 5x more important than 'distance from family')
+  'cost of living'       vs 'climate'               ->   1.000   ('cost of living' and 'climate' are equally important)
+  'cost of living'       vs 'distance from family'  ->   5.000   ('cost of living' is 5x more important than 'distance from family')
+  'climate'              vs 'distance from family'  ->   1.000   ('climate' and 'distance from family' are equally important)
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.286  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Evaluating a job offer
+criteria: compensation, learning opportunity, team quality, commute
+------------------------------------------------------------------------
+  'compensation'         vs 'learning opportunity'  ->   5.000   ('compensation' is 5x more important than 'learning opportunity')
+  'compensation'         vs 'team quality'          ->   5.000   ('compensation' is 5x more important than 'team quality')
+  'compensation'         vs 'commute'               ->   3.000   ('compensation' is 3x more important than 'commute')
+  'learning opportunity' vs 'team quality'          ->   0.333   ('team quality' is 3x more important than 'learning opportunity')
+  'learning opportunity' vs 'commute'               ->   0.333   ('commute' is 3x more important than 'learning opportunity')
+  'team quality'         vs 'commute'               ->   5.000   ('team quality' is 5x more important than 'commute')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.213  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Choosing a logging and monitoring stack
+criteria: query flexibility, storage cost, setup effort, alerting quality
+------------------------------------------------------------------------
+  'query flexibility'    vs 'storage cost'          ->   3.000   ('query flexibility' is 3x more important than 'storage cost')
+  'query flexibility'    vs 'setup effort'          ->   5.000   ('query flexibility' is 5x more important than 'setup effort')
+  'query flexibility'    vs 'alerting quality'      ->   5.000   ('query flexibility' is 5x more important than 'alerting quality')
+  'storage cost'         vs 'setup effort'          ->   0.333   ('setup effort' is 3x more important than 'storage cost')
+  'storage cost'         vs 'alerting quality'      ->   0.333   ('alerting quality' is 3x more important than 'storage cost')
+  'setup effort'         vs 'alerting quality'      ->   0.200   ('alerting quality' is 5x more important than 'setup effort')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.253  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Prioritising technical debt items
+criteria: slowdown caused, risk of outage, effort to fix, how often touched
+------------------------------------------------------------------------
+  'slowdown caused'      vs 'risk of outage'        ->   3.000   ('slowdown caused' is 3x more important than 'risk of outage')
+  'slowdown caused'      vs 'effort to fix'         ->   5.000   ('slowdown caused' is 5x more important than 'effort to fix')
+  'slowdown caused'      vs 'how often touched'     ->   0.333   ('how often touched' is 3x more important than 'slowdown caused')
+  'risk of outage'       vs 'effort to fix'         ->   0.333   ('effort to fix' is 3x more important than 'risk of outage')
+  'risk of outage'       vs 'how often touched'     ->   5.000   ('risk of outage' is 5x more important than 'how often touched')
+  'effort to fix'        vs 'how often touched'     ->   0.333   ('how often touched' is 3x more important than 'effort to fix')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.963  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.500  <-- FAILS the simple check
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Selecting a supplier for office hardware
+criteria: unit price, delivery time, warranty terms, past reliability
+------------------------------------------------------------------------
+  'unit price'           vs 'delivery time'         ->   0.333   ('delivery time' is 3x more important than 'unit price')
+  'unit price'           vs 'warranty terms'        ->   3.000   ('unit price' is 3x more important than 'warranty terms')
+  'unit price'           vs 'past reliability'      ->   0.200   ('past reliability' is 5x more important than 'unit price')
+  'delivery time'        vs 'warranty terms'        ->   3.000   ('delivery time' is 3x more important than 'warranty terms')
+  'delivery time'        vs 'past reliability'      ->   0.333   ('past reliability' is 3x more important than 'delivery time')
+  'warranty terms'       vs 'past reliability'      ->   5.000   ('warranty terms' is 5x more important than 'past reliability')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 1.010  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.500  <-- FAILS the simple check
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Choosing a machine learning model for production
+criteria: accuracy, inference latency, interpretability, retraining cost
+------------------------------------------------------------------------
+  'accuracy'             vs 'inference latency'     ->   0.333   ('inference latency' is 3x more important than 'accuracy')
+  'accuracy'             vs 'interpretability'      ->   0.333   ('interpretability' is 3x more important than 'accuracy')
+  'accuracy'             vs 'retraining cost'       ->   0.333   ('retraining cost' is 3x more important than 'accuracy')
+  'inference latency'    vs 'interpretability'      ->   0.333   ('interpretability' is 3x more important than 'inference latency')
+  'inference latency'    vs 'retraining cost'       ->   0.333   ('retraining cost' is 3x more important than 'inference latency')
+  'interpretability'     vs 'retraining cost'       ->   3.000   ('interpretability' is 3x more important than 'retraining cost')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.115  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Picking a conference to attend
+criteria: topic relevance, networking value, travel cost, time away
+------------------------------------------------------------------------
+  'topic relevance'      vs 'networking value'      ->   1.000   ('topic relevance' and 'networking value' are equally important)
+  'topic relevance'      vs 'travel cost'           ->   1.000   ('topic relevance' and 'travel cost' are equally important)
+  'topic relevance'      vs 'time away'             ->   5.000   ('topic relevance' is 5x more important than 'time away')
+  'networking value'     vs 'travel cost'           ->   1.000   ('networking value' and 'travel cost' are equally important)
+  'networking value'     vs 'time away'             ->   1.000   ('networking value' and 'time away' are equally important)
+  'travel cost'          vs 'time away'             ->   0.333   ('time away' is 3x more important than 'travel cost')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.286  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Choosing an authentication approach
+criteria: security, user friction, implementation effort, vendor lock-in
+------------------------------------------------------------------------
+  'security'             vs 'user friction'         ->   5.000   ('security' is 5x more important than 'user friction')
+  'security'             vs 'implementation effort'  ->   5.000   ('security' is 5x more important than 'implementation effort')
+  'security'             vs 'vendor lock-in'        ->   3.003   ('security' is 3x more important than 'vendor lock-in')
+  'user friction'        vs 'implementation effort'  ->   0.333   ('implementation effort' is 3x more important than 'user friction')
+  'user friction'        vs 'vendor lock-in'        ->   3.000   ('user friction' is 3x more important than 'vendor lock-in')
+  'implementation effort' vs 'vendor lock-in'        ->   0.200   ('vendor lock-in' is 5x more important than 'implementation effort')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.561  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.250  <-- FAILS the simple check
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Selecting a project management tool
+criteria: ease of use, integrations, price per seat, reporting
+------------------------------------------------------------------------
+  'ease of use'          vs 'integrations'          ->   3.000   ('ease of use' is 3x more important than 'integrations')
+  'ease of use'          vs 'price per seat'        ->   3.000   ('ease of use' is 3x more important than 'price per seat')
+  'ease of use'          vs 'reporting'             ->   3.000   ('ease of use' is 3x more important than 'reporting')
+  'integrations'         vs 'price per seat'        ->   1.000   ('integrations' and 'price per seat' are equally important)
+  'integrations'         vs 'reporting'             ->   3.000   ('integrations' is 3x more important than 'reporting')
+  'price per seat'       vs 'reporting'             ->   0.333   ('reporting' is 3x more important than 'price per seat')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.180  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Prioritising construction site risks
+criteria: likelihood, safety impact, schedule impact, cost to mitigate
+------------------------------------------------------------------------
+  'likelihood'           vs 'safety impact'         ->   0.200   ('safety impact' is 5x more important than 'likelihood')
+  'likelihood'           vs 'schedule impact'       ->   0.200   ('schedule impact' is 5x more important than 'likelihood')
+  'likelihood'           vs 'cost to mitigate'      ->   3.000   ('likelihood' is 3x more important than 'cost to mitigate')
+  'safety impact'        vs 'schedule impact'       ->   5.000   ('safety impact' is 5x more important than 'schedule impact')
+  'safety impact'        vs 'cost to mitigate'      ->   5.000   ('safety impact' is 5x more important than 'cost to mitigate')
+  'schedule impact'      vs 'cost to mitigate'      ->   5.000   ('schedule impact' is 5x more important than 'cost to mitigate')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.183  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Choosing a material for a structural component
+criteria: strength, cost, embodied carbon, local availability
+------------------------------------------------------------------------
+  'strength'             vs 'cost'                  ->   0.200   ('cost' is 5x more important than 'strength')
+  'strength'             vs 'embodied carbon'       ->   5.000   ('strength' is 5x more important than 'embodied carbon')
+  'strength'             vs 'local availability'    ->   5.000   ('strength' is 5x more important than 'local availability')
+  'cost'                 vs 'embodied carbon'       ->   1.000   ('cost' and 'embodied carbon' are equally important)
+  'cost'                 vs 'local availability'    ->   5.000   ('cost' is 5x more important than 'local availability')
+  'embodied carbon'      vs 'local availability'    ->   0.333   ('local availability' is 3x more important than 'embodied carbon')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.569  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Selecting a third-party library
+criteria: maintenance activity, security history, bundle size, API quality
+------------------------------------------------------------------------
+  'maintenance activity' vs 'security history'      ->   0.200   ('security history' is 5x more important than 'maintenance activity')
+  'maintenance activity' vs 'bundle size'           ->   0.200   ('bundle size' is 5x more important than 'maintenance activity')
+  'maintenance activity' vs 'API quality'           ->   0.333   ('API quality' is 3x more important than 'maintenance activity')
+  'security history'     vs 'bundle size'           ->   5.000   ('security history' is 5x more important than 'bundle size')
+  'security history'     vs 'API quality'           ->   5.000   ('security history' is 5x more important than 'API quality')
+  'bundle size'          vs 'API quality'           ->   0.333   ('API quality' is 3x more important than 'bundle size')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.183  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: nemotron-3-ultra:cloud
+DECISION: Choosing a testing strategy
+criteria: defect detection, run time, maintenance burden, onboarding cost
+------------------------------------------------------------------------
+  'defect detection'     vs 'run time'              ->   1.000   ('defect detection' and 'run time' are equally important)
+  'defect detection'     vs 'maintenance burden'    ->   5.000   ('defect detection' is 5x more important than 'maintenance burden')
+  'defect detection'     vs 'onboarding cost'       ->   0.333   ('onboarding cost' is 3x more important than 'defect detection')
+  'run time'             vs 'maintenance burden'    ->   0.333   ('maintenance burden' is 3x more important than 'run time')
+  'run time'             vs 'onboarding cost'       ->   0.333   ('onboarding cost' is 3x more important than 'run time')
+  'maintenance burden'   vs 'onboarding cost'       ->   3.000   ('maintenance burden' is 3x more important than 'onboarding cost')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.645  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.250  <-- FAILS the simple check
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Choosing a database for a new web service
+criteria: query speed, operational cost, team familiarity, scaling headroom
+------------------------------------------------------------------------
+  'query speed'          vs 'operational cost'      ->   1.000   ('query speed' and 'operational cost' are equally important)
+  'query speed'          vs 'team familiarity'      ->   0.333   ('team familiarity' is 3x more important than 'query speed')
+  'query speed'          vs 'scaling headroom'      ->   0.333   ('scaling headroom' is 3x more important than 'query speed')
+  'operational cost'     vs 'team familiarity'      ->   0.333   ('team familiarity' is 3x more important than 'operational cost')
+  'operational cost'     vs 'scaling headroom'      ->   1.000   ('operational cost' and 'scaling headroom' are equally important)
+  'team familiarity'     vs 'scaling headroom'      ->   3.000   ('team familiarity' is 3x more important than 'scaling headroom')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.057  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Prioritising bugs before a release
+criteria: users affected, severity, fix effort, regression risk
+------------------------------------------------------------------------
+  'users affected'       vs 'severity'              ->   1.000   ('users affected' and 'severity' are equally important)
+  'users affected'       vs 'fix effort'            ->   3.000   ('users affected' is 3x more important than 'fix effort')
+  'users affected'       vs 'regression risk'       ->   0.333   ('regression risk' is 3x more important than 'users affected')
+  'severity'             vs 'fix effort'            ->   5.000   ('severity' is 5x more important than 'fix effort')
+  'severity'             vs 'regression risk'       ->   3.003   ('severity' is 3x more important than 'regression risk')
+  'fix effort'           vs 'regression risk'       ->   0.333   ('regression risk' is 3x more important than 'fix effort')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.166  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Selecting a cloud region
+criteria: latency to users, price, compliance, service availability
+------------------------------------------------------------------------
+  'latency to users'     vs 'price'                 ->   3.000   ('latency to users' is 3x more important than 'price')
+  'latency to users'     vs 'compliance'            ->   0.333   ('compliance' is 3x more important than 'latency to users')
+  'latency to users'     vs 'service availability'  ->   1.000   ('latency to users' and 'service availability' are equally important)
+  'price'                vs 'compliance'            ->   0.333   ('compliance' is 3x more important than 'price')
+  'price'                vs 'service availability'  ->   0.333   ('service availability' is 3x more important than 'price')
+  'compliance'           vs 'service availability'  ->   1.000   ('compliance' and 'service availability' are equally important)
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.057  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Picking a frontend framework
+criteria: ecosystem size, learning curve, performance, long-term support
+------------------------------------------------------------------------
+  'ecosystem size'       vs 'learning curve'        ->   3.000   ('ecosystem size' is 3x more important than 'learning curve')
+  'ecosystem size'       vs 'performance'           ->   3.003   ('ecosystem size' is 3x more important than 'performance')
+  'ecosystem size'       vs 'long-term support'     ->   1.000   ('ecosystem size' and 'long-term support' are equally important)
+  'learning curve'       vs 'performance'           ->   3.000   ('learning curve' is 3x more important than 'performance')
+  'learning curve'       vs 'long-term support'     ->   0.333   ('long-term support' is 3x more important than 'learning curve')
+  'performance'          vs 'long-term support'     ->   0.333   ('long-term support' is 3x more important than 'performance')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.057  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Choosing a laptop for development work
+criteria: battery life, price, build quality, screen
+------------------------------------------------------------------------
+  'battery life'         vs 'price'                 ->   0.333   ('price' is 3x more important than 'battery life')
+  'battery life'         vs 'build quality'         ->   0.333   ('build quality' is 3x more important than 'battery life')
+  'battery life'         vs 'screen'                ->   0.333   ('screen' is 3x more important than 'battery life')
+  'price'                vs 'build quality'         ->   0.333   ('build quality' is 3x more important than 'price')
+  'price'                vs 'screen'                ->   0.333   ('screen' is 3x more important than 'price')
+  'build quality'        vs 'screen'                ->   1.000   ('build quality' and 'screen' are equally important)
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.057  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Ranking features for next sprint
+criteria: customer demand, revenue impact, engineering cost, strategic fit
+------------------------------------------------------------------------
+  'customer demand'      vs 'revenue impact'        ->   1.000   ('customer demand' and 'revenue impact' are equally important)
+  'customer demand'      vs 'engineering cost'      ->   3.000   ('customer demand' is 3x more important than 'engineering cost')
+  'customer demand'      vs 'strategic fit'         ->   1.000   ('customer demand' and 'strategic fit' are equally important)
+  'revenue impact'       vs 'engineering cost'      ->   0.333   ('engineering cost' is 3x more important than 'revenue impact')
+  'revenue impact'       vs 'strategic fit'         ->   1.000   ('revenue impact' and 'strategic fit' are equally important)
+  'engineering cost'     vs 'strategic fit'         ->   0.333   ('strategic fit' is 3x more important than 'engineering cost')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.243  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Selecting a payment provider
+criteria: transaction fees, country coverage, integration effort, reliability
+------------------------------------------------------------------------
+  'transaction fees'     vs 'country coverage'      ->   3.000   ('transaction fees' is 3x more important than 'country coverage')
+  'transaction fees'     vs 'integration effort'    ->   1.000   ('transaction fees' and 'integration effort' are equally important)
+  'transaction fees'     vs 'reliability'           ->   0.200   ('reliability' is 5x more important than 'transaction fees')
+  'country coverage'     vs 'integration effort'    ->   1.000   ('country coverage' and 'integration effort' are equally important)
+  'country coverage'     vs 'reliability'           ->   3.000   ('country coverage' is 3x more important than 'reliability')
+  'integration effort'   vs 'reliability'           ->   0.200   ('reliability' is 5x more important than 'integration effort')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.645  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.250  <-- FAILS the simple check
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Choosing a city to relocate to for work
+criteria: salary, cost of living, climate, distance from family
+------------------------------------------------------------------------
+  'salary'               vs 'cost of living'        ->   1.000   ('salary' and 'cost of living' are equally important)
+  'salary'               vs 'climate'               ->   3.000   ('salary' is 3x more important than 'climate')
+  'salary'               vs 'distance from family'  ->   1.000   ('salary' and 'distance from family' are equally important)
+  'cost of living'       vs 'climate'               ->   3.000   ('cost of living' is 3x more important than 'climate')
+  'cost of living'       vs 'distance from family'  ->   1.000   ('cost of living' and 'distance from family' are equally important)
+  'climate'              vs 'distance from family'  ->   1.000   ('climate' and 'distance from family' are equally important)
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.057  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Evaluating a job offer
+criteria: compensation, learning opportunity, team quality, commute
+------------------------------------------------------------------------
+  'compensation'         vs 'learning opportunity'  ->   1.000   ('compensation' and 'learning opportunity' are equally important)
+  'compensation'         vs 'team quality'          ->   1.000   ('compensation' and 'team quality' are equally important)
+  'compensation'         vs 'commute'               ->   3.000   ('compensation' is 3x more important than 'commute')
+  'learning opportunity' vs 'team quality'          ->   1.000   ('learning opportunity' and 'team quality' are equally important)
+  'learning opportunity' vs 'commute'               ->   1.000   ('learning opportunity' and 'commute' are equally important)
+  'team quality'         vs 'commute'               ->   3.000   ('team quality' is 3x more important than 'commute')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.057  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Choosing a logging and monitoring stack
+criteria: query flexibility, storage cost, setup effort, alerting quality
+------------------------------------------------------------------------
+  'query flexibility'    vs 'storage cost'          ->   3.000   ('query flexibility' is 3x more important than 'storage cost')
+  'query flexibility'    vs 'setup effort'          ->   3.000   ('query flexibility' is 3x more important than 'setup effort')
+  'query flexibility'    vs 'alerting quality'      ->   3.000   ('query flexibility' is 3x more important than 'alerting quality')
+  'storage cost'         vs 'setup effort'          ->   3.003   ('storage cost' is 3x more important than 'setup effort')
+  'storage cost'         vs 'alerting quality'      ->   0.333   ('alerting quality' is 3x more important than 'storage cost')
+  'setup effort'         vs 'alerting quality'      ->   0.333   ('alerting quality' is 3x more important than 'setup effort')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.115  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Prioritising technical debt items
+criteria: slowdown caused, risk of outage, effort to fix, how often touched
+------------------------------------------------------------------------
+  'slowdown caused'      vs 'risk of outage'        ->   0.333   ('risk of outage' is 3x more important than 'slowdown caused')
+  'slowdown caused'      vs 'effort to fix'         ->   3.000   ('slowdown caused' is 3x more important than 'effort to fix')
+  'slowdown caused'      vs 'how often touched'     ->   3.000   ('slowdown caused' is 3x more important than 'how often touched')
+  'risk of outage'       vs 'effort to fix'         ->   3.003   ('risk of outage' is 3x more important than 'effort to fix')
+  'risk of outage'       vs 'how often touched'     ->   3.000   ('risk of outage' is 3x more important than 'how often touched')
+  'effort to fix'        vs 'how often touched'     ->   0.333   ('how often touched' is 3x more important than 'effort to fix')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.115  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Selecting a supplier for office hardware
+criteria: unit price, delivery time, warranty terms, past reliability
+------------------------------------------------------------------------
+  'unit price'           vs 'delivery time'         ->   1.000   ('unit price' and 'delivery time' are equally important)
+  'unit price'           vs 'warranty terms'        ->   0.333   ('warranty terms' is 3x more important than 'unit price')
+  'unit price'           vs 'past reliability'      ->   0.333   ('past reliability' is 3x more important than 'unit price')
+  'delivery time'        vs 'warranty terms'        ->   1.000   ('delivery time' and 'warranty terms' are equally important)
+  'delivery time'        vs 'past reliability'      ->   0.333   ('past reliability' is 3x more important than 'delivery time')
+  'warranty terms'       vs 'past reliability'      ->   0.333   ('past reliability' is 3x more important than 'warranty terms')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.057  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Choosing a machine learning model for production
+criteria: accuracy, inference latency, interpretability, retraining cost
+------------------------------------------------------------------------
+  'accuracy'             vs 'inference latency'     ->   1.000   ('accuracy' and 'inference latency' are equally important)
+  'accuracy'             vs 'interpretability'      ->   3.003   ('accuracy' is 3x more important than 'interpretability')
+  'accuracy'             vs 'retraining cost'       ->   3.000   ('accuracy' is 3x more important than 'retraining cost')
+  'inference latency'    vs 'interpretability'      ->   1.000   ('inference latency' and 'interpretability' are equally important)
+  'inference latency'    vs 'retraining cost'       ->   1.000   ('inference latency' and 'retraining cost' are equally important)
+  'interpretability'     vs 'retraining cost'       ->   0.333   ('retraining cost' is 3x more important than 'interpretability')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.115  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Picking a conference to attend
+criteria: topic relevance, networking value, travel cost, time away
+------------------------------------------------------------------------
+  'topic relevance'      vs 'networking value'      ->   1.000   ('topic relevance' and 'networking value' are equally important)
+  'topic relevance'      vs 'travel cost'           ->   3.003   ('topic relevance' is 3x more important than 'travel cost')
+  'topic relevance'      vs 'time away'             ->   3.000   ('topic relevance' is 3x more important than 'time away')
+  'networking value'     vs 'travel cost'           ->   3.003   ('networking value' is 3x more important than 'travel cost')
+  'networking value'     vs 'time away'             ->   3.003   ('networking value' is 3x more important than 'time away')
+  'travel cost'          vs 'time away'             ->   1.000   ('travel cost' and 'time away' are equally important)
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.000  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Choosing an authentication approach
+criteria: security, user friction, implementation effort, vendor lock-in
+------------------------------------------------------------------------
+  'security'             vs 'user friction'         ->   3.000   ('security' is 3x more important than 'user friction')
+  'security'             vs 'implementation effort'  ->   3.003   ('security' is 3x more important than 'implementation effort')
+  'security'             vs 'vendor lock-in'        ->   9.000   ('security' is 9x more important than 'vendor lock-in')
+  'user friction'        vs 'implementation effort'  ->   3.003   ('user friction' is 3x more important than 'implementation effort')
+  'user friction'        vs 'vendor lock-in'        ->   3.000   ('user friction' is 3x more important than 'vendor lock-in')
+  'implementation effort' vs 'vendor lock-in'        ->   1.000   ('implementation effort' and 'vendor lock-in' are equally important)
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.057  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Selecting a project management tool
+criteria: ease of use, integrations, price per seat, reporting
+------------------------------------------------------------------------
+  'ease of use'          vs 'integrations'          ->   0.333   ('integrations' is 3x more important than 'ease of use')
+  'ease of use'          vs 'price per seat'        ->   0.333   ('price per seat' is 3x more important than 'ease of use')
+  'ease of use'          vs 'reporting'             ->   3.000   ('ease of use' is 3x more important than 'reporting')
+  'integrations'         vs 'price per seat'        ->   3.003   ('integrations' is 3x more important than 'price per seat')
+  'integrations'         vs 'reporting'             ->   1.000   ('integrations' and 'reporting' are equally important)
+  'price per seat'       vs 'reporting'             ->   0.333   ('reporting' is 3x more important than 'price per seat')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.454  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.250  <-- FAILS the simple check
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Prioritising construction site risks
+criteria: likelihood, safety impact, schedule impact, cost to mitigate
+------------------------------------------------------------------------
+  'likelihood'           vs 'safety impact'         ->   0.200   ('safety impact' is 5x more important than 'likelihood')
+  'likelihood'           vs 'schedule impact'       ->   1.000   ('likelihood' and 'schedule impact' are equally important)
+  'likelihood'           vs 'cost to mitigate'      ->   3.000   ('likelihood' is 3x more important than 'cost to mitigate')
+  'safety impact'        vs 'schedule impact'       ->   5.000   ('safety impact' is 5x more important than 'schedule impact')
+  'safety impact'        vs 'cost to mitigate'      ->   9.000   ('safety impact' is 9x more important than 'cost to mitigate')
+  'schedule impact'      vs 'cost to mitigate'      ->   1.000   ('schedule impact' and 'cost to mitigate' are equally important)
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.043  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Choosing a material for a structural component
+criteria: strength, cost, embodied carbon, local availability
+------------------------------------------------------------------------
+  'strength'             vs 'cost'                  ->   3.003   ('strength' is 3x more important than 'cost')
+  'strength'             vs 'embodied carbon'       ->   1.000   ('strength' and 'embodied carbon' are equally important)
+  'strength'             vs 'local availability'    ->   5.000   ('strength' is 5x more important than 'local availability')
+  'cost'                 vs 'embodied carbon'       ->   1.000   ('cost' and 'embodied carbon' are equally important)
+  'cost'                 vs 'local availability'    ->   1.000   ('cost' and 'local availability' are equally important)
+  'embodied carbon'      vs 'local availability'    ->   0.333   ('local availability' is 3x more important than 'embodied carbon')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.259  <-- FAILS the deep check (CR > 0.10)
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+  >>> THE INTERESTING CASE: no ranking contradiction at all, but the magnitudes above don't add up mathematically. <<<
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Selecting a third-party library
+criteria: maintenance activity, security history, bundle size, API quality
+------------------------------------------------------------------------
+  'maintenance activity' vs 'security history'      ->   1.000   ('maintenance activity' and 'security history' are equally important)
+  'maintenance activity' vs 'bundle size'           ->   3.003   ('maintenance activity' is 3x more important than 'bundle size')
+  'maintenance activity' vs 'API quality'           ->   1.000   ('maintenance activity' and 'API quality' are equally important)
+  'security history'     vs 'bundle size'           ->   5.000   ('security history' is 5x more important than 'bundle size')
+  'security history'     vs 'API quality'           ->   3.000   ('security history' is 3x more important than 'API quality')
+  'bundle size'          vs 'API quality'           ->   0.333   ('API quality' is 3x more important than 'bundle size')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.043  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
+
+========================================================================
+MODEL: gemini-3.5-flash-lite
+DECISION: Choosing a testing strategy
+criteria: defect detection, run time, maintenance burden, onboarding cost
+------------------------------------------------------------------------
+  'defect detection'     vs 'run time'              ->   3.003   ('defect detection' is 3x more important than 'run time')
+  'defect detection'     vs 'maintenance burden'    ->   3.000   ('defect detection' is 3x more important than 'maintenance burden')
+  'defect detection'     vs 'onboarding cost'       ->   5.000   ('defect detection' is 5x more important than 'onboarding cost')
+  'run time'             vs 'maintenance burden'    ->   0.333   ('maintenance burden' is 3x more important than 'run time')
+  'run time'             vs 'onboarding cost'       ->   1.000   ('run time' and 'onboarding cost' are equally important)
+  'maintenance burden'   vs 'onboarding cost'       ->   3.000   ('maintenance burden' is 3x more important than 'onboarding cost')
+------------------------------------------------------------------------
+  Consistency ratio (CR): 0.043  -- passes the deep check
+  Ranking contradiction (cycle rate): 0.000  -- passes the simple check
