@@ -1,0 +1,65 @@
+C:\Users\thenu\Downloads\Final Yeaf\Proposal demo\ktas-pairwise-triage\scripts\soundness.py:158: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  tau, rho = kendalltau(w, t).statistic, spearmanr(w, t).statistic
+variant requests: 0 new
+gemini-decision-1: 169 sets with every arm complete; B3 arms included
+check: direct_each vs recomputed v0 ranking, mean tau 1.000 (expect 1.000)
+
+A1  primary: tau-b (ties kept) gain vs direct_each; secondary: pair accuracy gain. Sign-flip perm (10,000, seed 0), Holm over 6 arms per family
+  direct_set      tau +0.012 [-0.030, +0.056] p=0.5932 Holm=1.0000 | pairacc -0.054 [-0.077, -0.029] p=0.0000 Holm=0.0000
+  optionwise      tau +0.006 [-0.015, +0.028] p=0.5705 Holm=1.0000 | pairacc +0.005 [-0.009, +0.020] p=0.4744 Holm=0.9488
+  binwin_bt_fwd   tau +0.001 [-0.028, +0.031] p=0.9279 Holm=1.0000 | pairacc -0.001 [-0.019, +0.017] p=0.9316 Holm=0.9488
+  binwin_bt_swap  tau +0.033 [+0.005, +0.061] p=0.0230 Holm=0.1380 | pairacc +0.011 [-0.006, +0.029] p=0.1997 Holm=0.5991
+  pairprob_bt     tau +0.025 [-0.001, +0.052] p=0.0677 Holm=0.3385 | pairacc +0.016 [-0.001, +0.032] p=0.0665 Holm=0.3325
+  pairprob_ahp    tau +0.023 [-0.002, +0.049] p=0.0781 Holm=0.3385 | pairacc +0.014 [-0.001, +0.030] p=0.0790 Holm=0.3325
+
+levels: tau-b | pair accuracy | Spearman
+  direct_each     q= 5  0.506 [0.454, 0.555] | 0.802 [0.771, 0.833] | 0.574 [0.517, 0.628]
+  direct_set      q= 5  0.518 [0.461, 0.573] | 0.749 [0.719, 0.778] | 0.544 [0.485, 0.601]
+  optionwise      q=25  0.512 [0.461, 0.560] | 0.808 [0.776, 0.838] | 0.579 [0.523, 0.631]
+  binwin_bt_fwd   q=10  0.507 [0.459, 0.554] | 0.802 [0.772, 0.830] | 0.573 [0.521, 0.624]
+  binwin_bt_swap  q=20  0.539 [0.490, 0.587] | 0.814 [0.785, 0.842] | 0.597 [0.545, 0.649]
+  pairprob_bt     q=20  0.531 [0.483, 0.577] | 0.818 [0.789, 0.846] | 0.595 [0.542, 0.645]
+  pairprob_ahp    q=20  0.529 [0.480, 0.576] | 0.817 [0.787, 0.846] | 0.593 [0.540, 0.643]
+  direct_each_rev q= 5  0.518 [0.469, 0.564] | 0.810 [0.781, 0.839] | 0.586 [0.533, 0.635]
+  direct_each_ens q=20  0.522 [0.472, 0.571] | 0.812 [0.781, 0.842] | 0.591 [0.536, 0.642]
+  nurse           q= 0  0.837 [0.797, 0.873] | 0.922 [0.901, 0.941] | 0.853 [0.813, 0.889]
+
+A2  safety (crit_top2 on 112 sets with a KTAS 1-2 patient); diff vs direct_each in ()
+  direct_each     top1 0.722 [0.657, 0.787]  top2 0.876 [0.822, 0.923]
+                  crit_top2 0.795 [0.726, 0.859]  undertri 0.198 [0.167, 0.229]  undertri_crit 0.159 [0.115, 0.207]
+  direct_set      top1 0.677 [0.623, 0.730] (-0.045 [-0.094, +0.005])  top2 0.836 [0.793, 0.876] (-0.040 [-0.075, -0.005])
+                  crit_top2 0.736 [0.681, 0.790] (-0.059 [-0.106, -0.012])  undertri 0.251 [0.222, 0.281] (+0.054 [+0.029, +0.077])  undertri_crit 0.196 [0.154, 0.240] (+0.036 [+0.006, +0.067])
+  optionwise      top1 0.722 [0.657, 0.787] (+0.000 [-0.024, +0.024])  top2 0.846 [0.793, 0.899] (-0.030 [-0.065, +0.000])
+                  crit_top2 0.768 [0.696, 0.835] (-0.027 [-0.062, +0.000])  undertri 0.192 [0.162, 0.224] (-0.005 [-0.020, +0.009])  undertri_crit 0.172 [0.127, 0.219] (+0.013 [+0.000, +0.026])
+  binwin_bt_fwd   top1 0.761 [0.696, 0.822] (+0.040 [+0.004, +0.077])  top2 0.888 [0.839, 0.933] (+0.012 [-0.016, +0.044])
+                  crit_top2 0.798 [0.733, 0.859] (+0.003 [-0.032, +0.042])  undertri 0.198 [0.170, 0.228] (+0.001 [-0.017, +0.019])  undertri_crit 0.141 [0.100, 0.187] (-0.018 [-0.040, +0.003])
+  binwin_bt_swap  top1 0.763 [0.700, 0.823] (+0.041 [+0.011, +0.077])  top2 0.891 [0.844, 0.934] (+0.015 [-0.013, +0.046])
+                  crit_top2 0.811 [0.749, 0.870] (+0.017 [-0.017, +0.055])  undertri 0.186 [0.158, 0.215] (-0.011 [-0.029, +0.006])  undertri_crit 0.136 [0.096, 0.181] (-0.023 [-0.043, -0.003])
+  pairprob_bt     top1 0.769 [0.704, 0.828] (+0.047 [+0.012, +0.083])  top2 0.899 [0.852, 0.941] (+0.024 [-0.006, +0.059])
+                  crit_top2 0.817 [0.753, 0.876] (+0.022 [-0.009, +0.062])  undertri 0.182 [0.154, 0.211] (-0.016 [-0.032, +0.001])  undertri_crit 0.128 [0.088, 0.173] (-0.031 [-0.052, -0.011])
+  pairprob_ahp    top1 0.763 [0.698, 0.822] (+0.041 [+0.012, +0.077])  top2 0.899 [0.852, 0.941] (+0.024 [-0.006, +0.059])
+                  crit_top2 0.817 [0.753, 0.876] (+0.022 [-0.009, +0.062])  undertri 0.183 [0.154, 0.213] (-0.014 [-0.030, +0.001])  undertri_crit 0.132 [0.091, 0.178] (-0.028 [-0.048, -0.008])
+  direct_each_rev top1 0.746 [0.680, 0.811] (+0.024 [+0.006, +0.047])  top2 0.864 [0.811, 0.911] (-0.012 [-0.047, +0.018])
+                  crit_top2 0.777 [0.705, 0.844] (-0.018 [-0.054, +0.018])  undertri 0.190 [0.161, 0.219] (-0.008 [-0.018, +0.002])  undertri_crit 0.154 [0.110, 0.201] (-0.005 [-0.017, +0.007])
+  direct_each_ens top1 0.740 [0.675, 0.805] (+0.018 [+0.000, +0.041])  top2 0.882 [0.828, 0.929] (+0.006 [-0.012, +0.024])
+                  crit_top2 0.808 [0.740, 0.871] (+0.013 [+0.000, +0.036])  undertri 0.188 [0.158, 0.219] (-0.010 [-0.016, -0.004])  undertri_crit 0.150 [0.107, 0.198] (-0.009 [-0.017, -0.001])
+  nurse           top1 0.911 [0.871, 0.946] (+0.189 [+0.112, +0.263])  top2 0.970 [0.946, 0.990] (+0.095 [+0.041, +0.149])
+                  crit_top2 0.926 [0.893, 0.955] (+0.132 [+0.065, +0.204])  undertri 0.078 [0.059, 0.099] (-0.120 [-0.155, -0.085])  undertri_crit 0.045 [0.025, 0.068] (-0.115 [-0.163, -0.066])
+
+B3  contrasts (diff [95% CI], perm p)
+  pairprob_bt - direct_each_ens tau      +0.008 [-0.017, +0.035] p=0.5323
+  pairprob_bt - direct_each_ens pairacc  +0.006 [-0.010, +0.022] p=0.4770
+  pairprob_bt - direct_each_ens spearman +0.004 [-0.022, +0.032] p=0.7526
+  binwin_bt_swap - direct_each_ens tau      +0.016 [-0.012, +0.045] p=0.2602
+  binwin_bt_swap - direct_each_ens pairacc  +0.002 [-0.015, +0.019] p=0.8514
+  binwin_bt_swap - direct_each_ens spearman +0.006 [-0.022, +0.035] p=0.6544
+  direct_each_ens - direct_each     tau      +0.017 [+0.006, +0.027] p=0.0041
+  direct_each_ens - direct_each     pairacc  +0.010 [+0.004, +0.016] p=0.0041
+  direct_each_ens - direct_each     spearman +0.017 [+0.006, +0.028] p=0.0036
+  direct_each_rev - direct_each     tau      +0.012 [-0.004, +0.029] p=0.1569
+  direct_each_rev - direct_each     pairacc  +0.008 [-0.002, +0.018] p=0.1415
+  direct_each_rev - direct_each     spearman +0.012 [-0.004, +0.029] p=0.1621
+  position bias (reversed rubric vs original, expected KTAS level): mean_shift_rev_minus_orig -0.003, mean_abs_shift 0.137, share_rounded_level_changes 0.147, n_patients 845
+  paraphrases: Assign this patient's Korean Triage and Acuity Scale (KTAS) level. | Using the Korean Triage and Acuity Scale (KTAS), how urgently should this patient be seen?
+
+written: results_200\gemini-decision-1\soundness_summary_enssub.csv soundness_per_set_enssub.csv soundness_contrasts_enssub.csv

@@ -1,0 +1,42 @@
+C:\Users\thenu\Downloads\Final Yeaf\Proposal demo\ktas-pairwise-triage\scripts\soundness.py:158: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  tau, rho = kendalltau(w, t).statistic, spearmanr(w, t).statistic
+variant requests: 0 new
+gemini-decision-1: 200 sets with every arm complete; B3 arms NOT available
+
+A1  primary: tau-b (ties kept) gain vs direct_each; secondary: pair accuracy gain. Sign-flip perm (10,000, seed 0), Holm over 6 arms per family
+  direct_set      tau +0.011 [-0.029, +0.050] p=0.5947 Holm=1.0000 | pairacc -0.053 [-0.075, -0.031] p=0.0000 Holm=0.0000
+  optionwise      tau +0.013 [-0.007, +0.032] p=0.2295 Holm=0.6885 | pairacc +0.009 [-0.004, +0.022] p=0.1938 Holm=0.5814
+  binwin_bt_fwd   tau +0.003 [-0.024, +0.029] p=0.8526 Holm=1.0000 | pairacc -0.000 [-0.017, +0.016] p=0.9794 Holm=0.9794
+  binwin_bt_swap  tau +0.032 [+0.006, +0.057] p=0.0160 Holm=0.0960 | pairacc +0.010 [-0.006, +0.025] p=0.2163 Holm=0.5814
+  pairprob_bt     tau +0.026 [+0.003, +0.049] p=0.0305 Holm=0.1525 | pairacc +0.016 [+0.002, +0.031] p=0.0315 Holm=0.1575
+  pairprob_ahp    tau +0.021 [-0.002, +0.044] p=0.0750 Holm=0.3000 | pairacc +0.013 [-0.001, +0.027] p=0.0768 Holm=0.3072
+
+levels: tau-b | pair accuracy | Spearman
+  direct_each     q= 5  0.518 [0.470, 0.563] | 0.809 [0.780, 0.837] | 0.586 [0.535, 0.635]
+  direct_set      q= 5  0.529 [0.475, 0.580] | 0.756 [0.728, 0.782] | 0.555 [0.499, 0.607]
+  optionwise      q=25  0.530 [0.484, 0.575] | 0.818 [0.790, 0.845] | 0.597 [0.547, 0.645]
+  binwin_bt_fwd   q=10  0.520 [0.475, 0.565] | 0.809 [0.782, 0.836] | 0.584 [0.535, 0.632]
+  binwin_bt_swap  q=20  0.549 [0.504, 0.594] | 0.819 [0.792, 0.845] | 0.607 [0.559, 0.654]
+  pairprob_bt     q=20  0.543 [0.500, 0.586] | 0.825 [0.798, 0.851] | 0.608 [0.560, 0.654]
+  pairprob_ahp    q=20  0.538 [0.496, 0.582] | 0.822 [0.795, 0.848] | 0.603 [0.556, 0.649]
+  nurse           q= 0  0.835 [0.800, 0.868] | 0.918 [0.899, 0.936] | 0.851 [0.816, 0.883]
+
+A2  safety (crit_top2 on 137 sets with a KTAS 1-2 patient); diff vs direct_each in ()
+  direct_each     top1 0.740 [0.675, 0.800]  top2 0.880 [0.835, 0.925]
+                  crit_top2 0.811 [0.753, 0.867]  undertri 0.191 [0.163, 0.220]  undertri_crit 0.148 [0.109, 0.190]
+  direct_set      top1 0.683 [0.632, 0.733] (-0.057 [-0.103, -0.012])  top2 0.842 [0.802, 0.880] (-0.038 [-0.070, -0.006])
+                  crit_top2 0.752 [0.703, 0.799] (-0.059 [-0.101, -0.017])  undertri 0.244 [0.218, 0.272] (+0.053 [+0.031, +0.075])  undertri_crit 0.188 [0.150, 0.227] (+0.039 [+0.012, +0.066])
+  optionwise      top1 0.740 [0.675, 0.800] (+0.000 [-0.020, +0.020])  top2 0.860 [0.810, 0.905] (-0.020 [-0.050, +0.010])
+                  crit_top2 0.790 [0.730, 0.847] (-0.022 [-0.055, +0.007])  undertri 0.182 [0.155, 0.210] (-0.009 [-0.022, +0.004])  undertri_crit 0.157 [0.116, 0.199] (+0.009 [-0.003, +0.021])
+  binwin_bt_fwd   top1 0.763 [0.703, 0.820] (+0.023 [-0.010, +0.058])  top2 0.895 [0.850, 0.935] (+0.015 [-0.012, +0.043])
+                  crit_top2 0.821 [0.767, 0.872] (+0.010 [-0.023, +0.045])  undertri 0.191 [0.164, 0.218] (+0.000 [-0.016, +0.017])  undertri_crit 0.134 [0.098, 0.174] (-0.014 [-0.033, +0.004])
+  binwin_bt_swap  top1 0.769 [0.710, 0.824] (+0.029 [+0.002, +0.060])  top2 0.895 [0.853, 0.934] (+0.015 [-0.010, +0.041])
+                  crit_top2 0.828 [0.774, 0.877] (+0.016 [-0.012, +0.048])  undertri 0.181 [0.155, 0.208] (-0.010 [-0.025, +0.006])  undertri_crit 0.130 [0.094, 0.169] (-0.018 [-0.035, -0.002])
+  pairprob_bt     top1 0.775 [0.715, 0.830] (+0.035 [+0.005, +0.070])  top2 0.900 [0.855, 0.940] (+0.020 [-0.005, +0.050])
+                  crit_top2 0.830 [0.773, 0.882] (+0.018 [-0.007, +0.051])  undertri 0.175 [0.149, 0.202] (-0.016 [-0.031, -0.002])  undertri_crit 0.123 [0.087, 0.161] (-0.026 [-0.043, -0.009])
+  pairprob_ahp    top1 0.770 [0.710, 0.825] (+0.030 [+0.000, +0.060])  top2 0.900 [0.855, 0.940] (+0.020 [-0.005, +0.050])
+                  crit_top2 0.830 [0.773, 0.882] (+0.018 [-0.007, +0.051])  undertri 0.178 [0.152, 0.205] (-0.013 [-0.027, +0.001])  undertri_crit 0.127 [0.091, 0.166] (-0.021 [-0.040, -0.004])
+  nurse           top1 0.904 [0.870, 0.937] (+0.164 [+0.097, +0.234])  top2 0.966 [0.944, 0.985] (+0.086 [+0.037, +0.136])
+                  crit_top2 0.922 [0.890, 0.950] (+0.110 [+0.046, +0.173])  undertri 0.082 [0.064, 0.101] (-0.109 [-0.141, -0.077])  undertri_crit 0.052 [0.033, 0.075] (-0.096 [-0.142, -0.052])
+
+written: results_200\gemini-decision-1\soundness_summary.csv soundness_per_set.csv 
