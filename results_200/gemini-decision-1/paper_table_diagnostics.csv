@@ -1,0 +1,235 @@
+section,item,metric,value,ci_lo,ci_hi,n
+"tau-b, ties kept (as in the paper)",direct_each,tau,0.5175421463379246,0.46974882722194883,0.5634089332155157,200.0
+"tau-b, ties kept (as in the paper)",direct_each,tau_gain_vs_binwin_bt_swap,-0.031509728048110974,-0.056526553559353175,-0.006080959447034761,200.0
+"tau-b, ties kept (as in the paper)",direct_each,tau_gain_vs_pairprob_bt,-0.025772945652803605,-0.049202985192033866,-0.0027651592590289082,200.0
+"tau-b, ties kept (as in the paper)",direct_set,tau,0.5286229892568352,0.47516000948410303,0.5795589523695218,200.0
+"tau-b, ties kept (as in the paper)",direct_set,tau_gain_vs_direct_each,0.011080842918910663,-0.028937101241227694,0.050227967208492784,200.0
+"tau-b, ties kept (as in the paper)",direct_set,tau_gain_vs_binwin_bt_swap,-0.02042888512920031,-0.059348253938778885,0.01858563245671884,200.0
+"tau-b, ties kept (as in the paper)",direct_set,tau_gain_vs_pairprob_bt,-0.014692102733892933,-0.051669439766048084,0.021686022221866948,200.0
+"tau-b, ties kept (as in the paper)",optionwise,tau,0.5300901529223596,0.4844132776240098,0.57456817963528,200.0
+"tau-b, ties kept (as in the paper)",optionwise,tau_gain_vs_direct_each,0.01254800658443499,-0.006917040582081491,0.032305491905928956,200.0
+"tau-b, ties kept (as in the paper)",optionwise,tau_gain_vs_binwin_bt_swap,-0.018961721463675987,-0.045739316655648614,0.007447316462087801,200.0
+"tau-b, ties kept (as in the paper)",optionwise,tau_gain_vs_pairprob_bt,-0.01322493906836861,-0.038682128524474016,0.012285557405134564,200.0
+"tau-b, ties kept (as in the paper)",binwin_bt_fwd,tau,0.5201047100800001,0.47468192016444377,0.5653862624991074,200.0
+"tau-b, ties kept (as in the paper)",binwin_bt_fwd,tau_gain_vs_direct_each,0.0025625637420755676,-0.02431739206486694,0.028774184651432805,200.0
+"tau-b, ties kept (as in the paper)",binwin_bt_fwd,tau_gain_vs_binwin_bt_swap,-0.028947164306035406,-0.04350818729476891,-0.015280717312210524,200.0
+"tau-b, ties kept (as in the paper)",binwin_bt_fwd,tau_gain_vs_pairprob_bt,-0.023210381910728037,-0.04124775879299397,-0.005210451512950588,200.0
+"tau-b, ties kept (as in the paper)",binwin_bt_swap,tau,0.5490518743860355,0.5041406062527297,0.593962281820558,200.0
+"tau-b, ties kept (as in the paper)",binwin_bt_swap,tau_gain_vs_direct_each,0.031509728048110974,0.006080959447034737,0.05652655355935314,200.0
+"tau-b, ties kept (as in the paper)",binwin_bt_swap,tau_gain_vs_pairprob_bt,0.005736782395307371,-0.009897800377252965,0.021799522110146477,200.0
+"tau-b, ties kept (as in the paper)",pairprob_bt,tau,0.5433150919907281,0.4995618837927091,0.5863871586827933,200.0
+"tau-b, ties kept (as in the paper)",pairprob_bt,tau_gain_vs_direct_each,0.025772945652803605,0.002765159259028897,0.04920298519203386,200.0
+"tau-b, ties kept (as in the paper)",pairprob_bt,tau_gain_vs_binwin_bt_swap,-0.005736782395307371,-0.02179952211014649,0.009897800377252963,200.0
+"tau-b, ties kept (as in the paper)",pairprob_ahp,tau,0.5384116755984353,0.495571972794078,0.5816673464405364,200.0
+"tau-b, ties kept (as in the paper)",pairprob_ahp,tau_gain_vs_direct_each,0.020869529260510708,-0.0017330505234081951,0.044089589696478484,200.0
+"tau-b, ties kept (as in the paper)",pairprob_ahp,tau_gain_vs_binwin_bt_swap,-0.01064019878760027,-0.02832308870911051,0.006595133361109797,200.0
+"tau-b, ties kept (as in the paper)",pairprob_ahp,tau_gain_vs_pairprob_bt,-0.004903416392292898,-0.013461592782416244,0.0036361448021766047,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.00,tau,0.5493461151619524,0.503499144924334,0.594144761443374,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.00,tau_gain_vs_direct_each,0.03180396882402791,0.006440616741838785,0.05630677176336895,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.00,tau_gain_vs_binwin_bt_swap,0.000294240775916938,-0.012590794686669715,0.013241464577646855,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.00,tau_gain_vs_pairprob_bt,0.00603102317122431,-0.008244045924504255,0.020317231238666068,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.05,tau,0.5571691177334687,0.5124528757740079,0.6018838502286409,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.05,tau_gain_vs_direct_each,0.03962697139554414,0.014703650992938534,0.06412280360461463,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.05,tau_gain_vs_binwin_bt_swap,0.008117243347433169,-0.002511885828467419,0.01937142898327609,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.05,tau_gain_vs_pairprob_bt,0.013854025742740545,0.0001408983866752223,0.02841321198364957,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.10,tau,0.5709059906739692,0.5248425279250386,0.6163415132752419,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.10,tau_gain_vs_direct_each,0.053363844336044686,0.027503793352439843,0.07810476158945641,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.10,tau_gain_vs_binwin_bt_swap,0.021854116287933708,0.005434840208198464,0.03816590597622606,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.10,tau_gain_vs_pairprob_bt,0.027590898683241084,0.010227685286871124,0.044956032199969485,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.15,tau,0.5757119403413042,0.5307050334522362,0.62108603505822,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.15,tau_gain_vs_direct_each,0.05816979400337966,0.03402102122253595,0.08273992616567284,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.15,tau_gain_vs_binwin_bt_swap,0.02666006595526869,0.007420412092191482,0.046980814664592016,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.15,tau_gain_vs_pairprob_bt,0.03239684835057606,0.013446209661375644,0.05228465762608648,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.20,tau,0.5775630878677295,0.5317438555486594,0.6238015311086154,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.20,tau_gain_vs_direct_each,0.06002094152980495,0.03498754167346875,0.0858382162319421,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.20,tau_gain_vs_binwin_bt_swap,0.028511213481693977,0.003541528607841974,0.05384277871304095,200.0
+"tau-b, ties kept (as in the paper)",tieaware_d0.20,tau_gain_vs_pairprob_bt,0.03424799587700135,0.010896467868667197,0.05667358194122751,200.0
+"tau-b, ties kept (as in the paper)",nurse,tau,0.8350763363964481,0.799597579213688,0.8677800288876065,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",direct_each,tau_randtie,0.5175421463379245,0.46974882722194883,0.5634089332155157,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",direct_each,tau_randtie_gain_vs_binwin_bt_swap,-0.015103510023777845,-0.03912786802040774,0.010157899753784847,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",direct_each,tau_randtie_gain_vs_pairprob_bt,-0.025772945652803605,-0.04920298519203386,-0.0027651592590289212,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",direct_set,tau_randtie,0.42853008558998945,0.38404852791755184,0.4706126946238097,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",direct_set,tau_randtie_gain_vs_direct_each,-0.0890120607479351,-0.12522309059537154,-0.05284203170811451,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",direct_set,tau_randtie_gain_vs_binwin_bt_swap,-0.10411557077171293,-0.13785780021572439,-0.0703073609320199,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",direct_set,tau_randtie_gain_vs_pairprob_bt,-0.11478500640073871,-0.14667149017175266,-0.08267792641825898,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",optionwise,tau_randtie,0.5300901529223595,0.4844132776240098,0.57456817963528,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",optionwise,tau_randtie_gain_vs_direct_each,0.012548006584434992,-0.006917040582081485,0.032305491905928956,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",optionwise,tau_randtie_gain_vs_binwin_bt_swap,-0.0025555034393428544,-0.02860002458778495,0.023927542759974954,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",optionwise,tau_randtie_gain_vs_pairprob_bt,-0.013224939068368614,-0.03868212852447401,0.012285557405134562,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",binwin_bt_fwd,tau_randtie,0.5161112970572543,0.4714948179643551,0.5611092072307204,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",binwin_bt_fwd,tau_randtie_gain_vs_direct_each,-0.0014308492806702079,-0.02819884509111774,0.024256831800720004,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",binwin_bt_fwd,tau_randtie_gain_vs_binwin_bt_swap,-0.016534359304448056,-0.029971841535209147,-0.003759359455845145,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",binwin_bt_fwd,tau_randtie_gain_vs_pairprob_bt,-0.02720379493347382,-0.04523583841371898,-0.009359576036296707,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",binwin_bt_swap,tau_randtie,0.5326456563617024,0.488844533395532,0.5758411699326159,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",binwin_bt_swap,tau_randtie_gain_vs_direct_each,0.015103510023777845,-0.01015789975378486,0.03912786802040771,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",binwin_bt_swap,tau_randtie_gain_vs_pairprob_bt,-0.010669435629025765,-0.025712697729301636,0.004173190362488557,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",pairprob_bt,tau_randtie,0.5433150919907281,0.4995618837927091,0.5863871586827933,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",pairprob_bt,tau_randtie_gain_vs_direct_each,0.025772945652803605,0.00276515925902891,0.04920298519203385,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",pairprob_bt,tau_randtie_gain_vs_binwin_bt_swap,0.010669435629025765,-0.004173190362488587,0.02571269772930162,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",pairprob_ahp,tau_randtie,0.5384116755984353,0.49557197279407794,0.5816673464405364,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",pairprob_ahp,tau_randtie_gain_vs_direct_each,0.02086952926051071,-0.0017330505234081893,0.044089589696478484,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",pairprob_ahp,tau_randtie_gain_vs_binwin_bt_swap,0.005766019236732866,-0.010940876307047643,0.022732545903191115,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",pairprob_ahp,tau_randtie_gain_vs_pairprob_bt,-0.004903416392292898,-0.01346159278241624,0.003636144802176604,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.00,tau_randtie,0.5466408802759251,0.501470840125223,0.5907342422818402,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.00,tau_randtie_gain_vs_direct_each,0.029098733938000557,0.004140441649126856,0.05333409246466543,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.00,tau_randtie_gain_vs_binwin_bt_swap,0.013995223914222713,0.0017657795321516818,0.02667579244838037,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.00,tau_randtie_gain_vs_pairprob_bt,0.003325788285196949,-0.010159584657546735,0.01669798319526413,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.05,tau_randtie,0.539381639283786,0.4959439044890219,0.5824930456913715,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.05,tau_randtie_gain_vs_direct_each,0.021839492945861426,-0.002700469067378201,0.04603631734744548,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.05,tau_randtie_gain_vs_binwin_bt_swap,0.006735982922083583,-0.003105172044072059,0.017364969733540438,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.05,tau_randtie_gain_vs_pairprob_bt,-0.00393345270694218,-0.017322890229890923,0.010119736226387815,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.10,tau_randtie,0.5356129828564281,0.49139921580831997,0.5788193587793309,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.10,tau_randtie_gain_vs_direct_each,0.018070836518503563,-0.006906557242697772,0.042008767156073636,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.10,tau_randtie_gain_vs_binwin_bt_swap,0.0029673264947257206,-0.011513479552322473,0.01752338119411964,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.10,tau_randtie_gain_vs_pairprob_bt,-0.007702109134300044,-0.023374995838845752,0.008295316863160523,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.15,tau_randtie,0.5306910880487766,0.4889169752322572,0.573021353024697,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.15,tau_randtie_gain_vs_direct_each,0.013148941710852107,-0.010877816931535536,0.03722217684321794,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.15,tau_randtie_gain_vs_binwin_bt_swap,-0.001954568312925734,-0.018533994131793678,0.014719402404801003,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.15,tau_randtie_gain_vs_pairprob_bt,-0.012624003941951496,-0.028766833123910766,0.004157690916692416,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.20,tau_randtie,0.5173762798471111,0.4765086472477199,0.5594738807190806,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.20,tau_randtie_gain_vs_direct_each,-0.00016586649081336779,-0.024413063476584344,0.02417924048240579,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.20,tau_randtie_gain_vs_binwin_bt_swap,-0.015269376514591213,-0.03761547883347544,0.0062171865033244485,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",tieaware_d0.20,tau_randtie_gain_vs_pairprob_bt,-0.025938812143616975,-0.04691683765064723,-0.006170446659869487,200.0
+"tau-b, model-score ties broken at random (same rule for every arm)",nurse,tau_randtie,0.6980493725928621,0.6668346952428614,0.7295116031508332,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),direct_each,pairacc,0.8091170634920636,0.779968253968254,0.8370042162698413,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),direct_each,pairacc_gain_vs_binwin_bt_swap,-0.009722222222222222,-0.02486111111111111,0.005715401785714269,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),direct_each,pairacc_gain_vs_pairprob_bt,-0.015982142857142854,-0.03053621031746032,-0.001566964285714292,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),direct_set,pairacc,0.7556884920634921,0.7284025297619048,0.7816703869047619,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),direct_set,pairacc_gain_vs_direct_each,-0.05342857142857142,-0.07538802083333333,-0.030535639880952377,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),direct_set,pairacc_gain_vs_binwin_bt_swap,-0.06315079365079365,-0.0847688740079365,-0.041663144841269845,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),direct_set,pairacc_gain_vs_pairprob_bt,-0.06941071428571428,-0.08963457341269843,-0.04925483630952382,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),optionwise,pairacc,0.8179265873015873,0.7897710813492064,0.8452681051587303,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),optionwise,pairacc_gain_vs_direct_each,0.008809523809523809,-0.003859126984126984,0.021766865079365063,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),optionwise,pairacc_gain_vs_binwin_bt_swap,-0.0009126984126984139,-0.01683606150793651,0.015297743055555552,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),optionwise,pairacc_gain_vs_pairprob_bt,-0.007172619047619047,-0.022896825396825395,0.009037698412698412,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),binwin_bt_fwd,pairacc,0.8088789682539682,0.7815265376984126,0.8364290674603174,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),binwin_bt_fwd,pairacc_gain_vs_direct_each,-0.0002380952380952406,-0.01663888888888889,0.01592385912698411,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),binwin_bt_fwd,pairacc_gain_vs_binwin_bt_swap,-0.009960317460317464,-0.0181749751984127,-0.0019095982142857191,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),binwin_bt_fwd,pairacc_gain_vs_pairprob_bt,-0.016220238095238097,-0.0273125,-0.005316716269841282,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),binwin_bt_swap,pairacc,0.8188392857142857,0.7920982142857143,0.8450952380952381,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),binwin_bt_swap,pairacc_gain_vs_direct_each,0.009722222222222222,-0.0057154017857142855,0.02486111111111111,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),binwin_bt_swap,pairacc_gain_vs_pairprob_bt,-0.006259920634920633,-0.01558060515873016,0.0029474206349206227,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),pairprob_bt,pairacc,0.8250992063492063,0.7980044642857143,0.8512413194444446,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),pairprob_bt,pairacc_gain_vs_direct_each,0.015982142857142854,0.0015669642857142848,0.030536210317460313,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),pairprob_bt,pairacc_gain_vs_binwin_bt_swap,0.006259920634920633,-0.002947420634920637,0.015580605158730157,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),pairprob_ahp,pairacc,0.8220238095238095,0.7949799107142856,0.848484126984127,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),pairprob_ahp,pairacc_gain_vs_direct_each,0.012906746031746033,-0.00115128968253968,0.027321428571428566,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),pairprob_ahp,pairacc_gain_vs_binwin_bt_swap,0.00318452380952381,-0.007534970238095237,0.013732390873015844,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),pairprob_ahp,pairacc_gain_vs_pairprob_bt,-0.003075396825396823,-0.008462549603174602,0.00220287698412698,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.00,pairacc,0.8270634920634922,0.7992232142857142,0.8538102678571429,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.00,pairacc_gain_vs_direct_each,0.01794642857142857,0.002270337301587305,0.03325446428571428,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.00,pairacc_gain_vs_binwin_bt_swap,0.008224206349206349,0.0005007440476190472,0.01614099702380952,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.00,pairacc_gain_vs_pairprob_bt,0.0019642857142857157,-0.006706349206349207,0.01034796626984126,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.05,pairacc,0.8235119047619048,0.7969184027777777,0.8498317212301588,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.05,pairacc_gain_vs_direct_each,0.01439484126984127,-0.0010824652777777746,0.029875992063492066,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.05,pairacc_gain_vs_binwin_bt_swap,0.004672619047619047,-0.001448412698412698,0.011513020833333333,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.05,pairacc_gain_vs_pairprob_bt,-0.0015873015873015856,-0.010075644841269837,0.007520337301587299,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.10,pairacc,0.8204613095238096,0.7939775545634922,0.8468614831349205,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.10,pairacc_gain_vs_direct_each,0.011344246031746035,-0.00380989583333333,0.025699652777777776,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.10,pairacc_gain_vs_binwin_bt_swap,0.0016220238095238126,-0.007441096230158726,0.010674975198412696,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.10,pairacc_gain_vs_pairprob_bt,-0.004637896825396821,-0.0146578621031746,0.0059237351190476045,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.15,pairacc,0.8178819444444444,0.7926780753968253,0.843155009920635,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.15,pairacc_gain_vs_direct_each,0.008764880952380956,-0.005844246031746029,0.023422743055555556,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.15,pairacc_gain_vs_binwin_bt_swap,-0.0009573412698412664,-0.011195684523809523,0.009336681547619031,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.15,pairacc_gain_vs_pairprob_bt,-0.0072172619047619,-0.017466021825396826,0.0037306547619047584,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.20,pairacc,0.809048611111111,0.7838520585317461,0.8344259920634921,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.20,pairacc_gain_vs_direct_each,-6.845238095237793e-05,-0.014724231150793642,0.014847321428571432,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.20,pairacc_gain_vs_binwin_bt_swap,-0.009790674603174598,-0.023800074404761902,0.0035573412698412647,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),tieaware_d0.20,pairacc_gain_vs_pairprob_bt,-0.016050595238095232,-0.029210565476190473,-0.003495659722222236,200.0
+pair accuracy on pairs with differing expert levels (model tie = 0.5),nurse,pairacc,0.9179623015873016,0.8990285218253967,0.9358632440476191,200.0
+Spearman rho vs expert (average ranks for ties),direct_each,spearman,0.5857210037372702,0.5351982083163241,0.6349208039028718,200.0
+Spearman rho vs expert (average ranks for ties),direct_each,spearman_gain_vs_binwin_bt_swap,-0.021111319660389604,-0.04607819806383228,0.0044764659106335866,200.0
+Spearman rho vs expert (average ranks for ties),direct_each,spearman_gain_vs_pairprob_bt,-0.021873785348488373,-0.04598118853789977,0.0020124382199509638,200.0
+Spearman rho vs expert (average ranks for ties),direct_set,spearman,0.5545620643020611,0.4992522281898319,0.6067394800487199,200.0
+Spearman rho vs expert (average ranks for ties),direct_set,spearman_gain_vs_direct_each,-0.03115893943520911,-0.07195645406936929,0.009271336191787062,200.0
+Spearman rho vs expert (average ranks for ties),direct_set,spearman_gain_vs_binwin_bt_swap,-0.0522702590955987,-0.09201614305624076,-0.012841882947736681,200.0
+Spearman rho vs expert (average ranks for ties),direct_set,spearman_gain_vs_pairprob_bt,-0.05303272478369749,-0.09037726429105845,-0.01604691315955977,200.0
+Spearman rho vs expert (average ranks for ties),optionwise,spearman,0.5965736037156115,0.5466392791444934,0.645294966174297,200.0
+Spearman rho vs expert (average ranks for ties),optionwise,spearman_gain_vs_direct_each,0.010852599978341277,-0.009448970330954575,0.031607344500422116,200.0
+Spearman rho vs expert (average ranks for ties),optionwise,spearman_gain_vs_binwin_bt_swap,-0.010258719682048325,-0.03834371067948237,0.017415726379718666,200.0
+Spearman rho vs expert (average ranks for ties),optionwise,spearman_gain_vs_pairprob_bt,-0.0110211853701471,-0.03852039225326534,0.015929535029259437,200.0
+Spearman rho vs expert (average ranks for ties),binwin_bt_fwd,spearman,0.58422022541839,0.5352618981662142,0.6322682943524761,200.0
+Spearman rho vs expert (average ranks for ties),binwin_bt_fwd,spearman_gain_vs_direct_each,-0.001500778318880206,-0.028476095824609506,0.02533387536889013,200.0
+Spearman rho vs expert (average ranks for ties),binwin_bt_fwd,spearman_gain_vs_binwin_bt_swap,-0.022612097979269805,-0.03655582199862241,-0.009414380811826321,200.0
+Spearman rho vs expert (average ranks for ties),binwin_bt_fwd,spearman_gain_vs_pairprob_bt,-0.023374563667368585,-0.041109755738728285,-0.005958253659540591,200.0
+Spearman rho vs expert (average ranks for ties),binwin_bt_swap,spearman,0.6068323233976598,0.5591894587683328,0.6544607630390097,200.0
+Spearman rho vs expert (average ranks for ties),binwin_bt_swap,spearman_gain_vs_direct_each,0.021111319660389604,-0.004476465910633613,0.04607819806383227,200.0
+Spearman rho vs expert (average ranks for ties),binwin_bt_swap,spearman_gain_vs_pairprob_bt,-0.0007624656880987768,-0.01605455113928747,0.014841442543362372,200.0
+Spearman rho vs expert (average ranks for ties),pairprob_bt,spearman,0.6075947890857586,0.5602430901471577,0.65356745412927,200.0
+Spearman rho vs expert (average ranks for ties),pairprob_bt,spearman_gain_vs_direct_each,0.021873785348488373,-0.0020124382199509716,0.045981188537899745,200.0
+Spearman rho vs expert (average ranks for ties),pairprob_bt,spearman_gain_vs_binwin_bt_swap,0.0007624656880987768,-0.014841442543362372,0.016054551139287457,200.0
+Spearman rho vs expert (average ranks for ties),pairprob_ahp,spearman,0.6029690005058699,0.555937122770313,0.6493004018963372,200.0
+Spearman rho vs expert (average ranks for ties),pairprob_ahp,spearman_gain_vs_direct_each,0.01724799676859957,-0.005863326363672567,0.04103511558519739,200.0
+Spearman rho vs expert (average ranks for ties),pairprob_ahp,spearman_gain_vs_binwin_bt_swap,-0.003863322891790031,-0.021387375498159826,0.013235566913964271,200.0
+Spearman rho vs expert (average ranks for ties),pairprob_ahp,spearman_gain_vs_pairprob_bt,-0.004625788579888807,-0.013349130426486746,0.003908229141523831,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.00,spearman,0.6128407650088413,0.5629276225350329,0.6599233947142621,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.00,spearman_gain_vs_direct_each,0.027119761271571088,0.001051762708271125,0.052340740158308516,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.00,spearman_gain_vs_binwin_bt_swap,0.00600844161118149,-0.006608372821703153,0.018606016067496498,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.00,spearman_gain_vs_pairprob_bt,0.005245975923082713,-0.009284672792496684,0.01965380162803599,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.05,spearman,0.6131723371461938,0.5644076727774429,0.6603387565669248,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.05,spearman_gain_vs_direct_each,0.02745133340892358,0.001417611960259732,0.05268932902228746,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.05,spearman_gain_vs_binwin_bt_swap,0.006340013748533979,-0.004444822879125217,0.017740347891328726,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.05,spearman_gain_vs_pairprob_bt,0.005577548060435203,-0.0088697476212944,0.020768637836096067,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.10,spearman,0.6209356820195295,0.5723561947034412,0.6682435230900325,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.10,spearman_gain_vs_direct_each,0.035214678282259285,0.009206405787316385,0.06016660067657706,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.10,spearman_gain_vs_binwin_bt_swap,0.014103358621869679,-0.0021922327244250648,0.030207531375488258,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.10,spearman_gain_vs_pairprob_bt,0.013340892933770903,-0.0038582718559288277,0.03102676230886032,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.15,spearman,0.6226687387870941,0.5749736470530001,0.6703757078164474,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.15,spearman_gain_vs_direct_each,0.03694773504982379,0.012768871546250393,0.06174900248786951,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.15,spearman_gain_vs_binwin_bt_swap,0.015836415389434193,-0.002654905218125557,0.03519262793630302,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.15,spearman_gain_vs_pairprob_bt,0.015073949701335411,-0.003036329496158037,0.03425938279459001,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.20,spearman,0.6203904448238866,0.5724020818085118,0.6683727815185674,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.20,spearman_gain_vs_direct_each,0.03466944108661635,0.01024803683204437,0.05967993149281095,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.20,spearman_gain_vs_binwin_bt_swap,0.013558121426226753,-0.011088814336646931,0.03776398407940417,200.0
+Spearman rho vs expert (average ranks for ties),tieaware_d0.20,spearman_gain_vs_pairprob_bt,0.012795655738127975,-0.009387059794446788,0.03467906699250902,200.0
+Spearman rho vs expert (average ranks for ties),nurse,spearman,0.8511166715332066,0.8158606765673388,0.8833716567136312,200.0
+ties,expert,tied_pairs_per_set,3.005,,,
+ties,direct_each,tied_pairs_per_set,0.0,,,
+ties,direct_set,tied_pairs_per_set,3.995,,,
+ties,optionwise,tied_pairs_per_set,0.0,,,
+ties,binwin_bt_fwd,tied_pairs_per_set,0.245,,,
+ties,binwin_bt_swap,tied_pairs_per_set,0.605,,,
+ties,pairprob_bt,tied_pairs_per_set,0.0,,,
+ties,pairprob_ahp,tied_pairs_per_set,0.0,,,
+ties,tieaware_d0.00,tied_pairs_per_set,0.12,,,
+ties,tieaware_d0.05,tied_pairs_per_set,0.67,,,
+ties,tieaware_d0.10,tied_pairs_per_set,1.18,,,
+ties,tieaware_d0.15,tied_pairs_per_set,1.5,,,
+ties,tieaware_d0.20,tied_pairs_per_set,1.94,,,
+ties,nurse,tied_pairs_per_set,3.095,,,
+saturation,"raw P(first), both orders",share beyond 0.95/0.05,0.1625,,,4000.0
+saturation,"raw P(first), both orders",share beyond 0.99/0.01,0.04125,,,4000.0
+saturation,"raw P(first), both orders",median |p-0.5|,0.27756619814414457,,,4000.0
+saturation,order-averaged p_bar,share beyond 0.95/0.05,0.16,,,2000.0
+saturation,order-averaged p_bar,share beyond 0.99/0.01,0.0415,,,2000.0
+saturation,order-averaged p_bar,median |p-0.5|,0.2762186480724411,,,2000.0
+saturation,pairs,order flip rate,0.083,,,2000.0
+calibration,p_bar,accuracy,0.8313080771979986,,,1399.0
+calibration,p_bar,Brier,0.12378447102952841,,,1399.0
+calibration,p_bar,ECE (10 bins),0.03976850053319508,,,1399.0
+calibration bin,"[0.50,0.60)",mean confidence,0.5499643886451876,,,226.0
+calibration bin,"[0.50,0.60)",accuracy,0.6017699115044248,,,226.0
+calibration bin,"[0.60,0.80)",mean confidence,0.7040415330266896,,,419.0
+calibration bin,"[0.60,0.80)",accuracy,0.766109785202864,,,419.0
+calibration bin,"[0.80,0.95)",mean confidence,0.8828802042548792,,,460.0
+calibration bin,"[0.80,0.95)",accuracy,0.9021739130434783,,,460.0
+calibration bin,"[0.95,0.99)",mean confidence,0.9708404876483283,,,213.0
+calibration bin,"[0.95,0.99)",accuracy,0.9859154929577465,,,213.0
+calibration bin,"[0.99,1.00)",mean confidence,0.9954678987151415,,,81.0
+calibration bin,"[0.99,1.00)",accuracy,1.0,,,81.0
+variants (tau-b),Borda on p_bar,tau,0.5433150919907281,0.4995618837927091,0.5863871586827933,200.0
+variants (tau-b),binwin_bt_swap (plain wins),tau,0.5490518743860355,0.5041406062527297,0.593962281820558,200.0
+variants (tau-b),direct_each,tau,0.5175421463379246,0.46974882722194883,0.5634089332155157,200.0
+variants (tau-b),"log-odds AHP (=LLS), eps=0.01",tau,0.5384116755984353,0.495571972794078,0.5816673464405364,200.0
+variants (tau-b),"log-odds AHP (=LLS), eps=0.05",tau,0.5417657775646849,0.4985087808676265,0.585551990523456,200.0
+variants (tau-b),"log-odds AHP (=LLS), eps=0.1",tau,0.542710851093449,0.4986745543273528,0.586406374399965,200.0
+variants (tau-b),"log-odds AHP (=LLS), eps=0.2",tau,0.548335399677105,0.5046900606260227,0.5911662998343906,200.0
+variants (tau-b),"log-odds AHP, cap |l|<=log 9",tau,0.5415928171046991,0.49773030044342753,0.5852863290929985,200.0
+variants (tau-b),"soft BT, cap |l|<=log 9",tau,0.545410023912283,0.5014924617551249,0.5889465099978892,200.0
+variants (tau-b),"soft BT, clip eps=0.01",tau,0.5433150919907281,0.4995618837927091,0.5863871586827933,200.0
+variants (tau-b),"soft BT, clip eps=0.05",tau,0.5433150919907281,0.4995618837927091,0.5863871586827933,200.0
+variants (tau-b),"soft BT, clip eps=0.1",tau,0.545410023912283,0.5014924617551249,0.5889465099978892,200.0
+variants (tau-b),"soft BT, clip eps=0.2",tau,0.548335399677105,0.5046900606260227,0.5911662998343906,200.0
+variants (tau-b),"soft BT, lambda=0.25",tau,0.539529709587185,0.4963357631106662,0.5827944381191088,200.0
+variants (tau-b),"soft BT, lambda=0.5",tau,0.5421438155159762,0.4986950458640495,0.5855418745618758,200.0
+variants (tau-b),"soft BT, lambda=2.0",tau,0.5485723015724514,0.5054888220959717,0.5908113540928582,200.0

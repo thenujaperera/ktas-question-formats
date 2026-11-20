@@ -7,8 +7,8 @@ Does the **question format** change how well a language model (or a single-pass 
 **Local (Windows / macOS / Linux, Python 3.10+)**
 
 ```bash
-git clone https://github.com/thenujaperera/ahp-killtest
-cd ahp-killtest
+git clone https://github.com/thenujaperera/ktas-question-formats
+cd ktas-question-formats
 pip install -r requirements.txt pytest
 python -m pytest -q tests          # offline checks, no API key needed
 ```

@@ -1,0 +1,67 @@
+C:\Users\thenu\Downloads\Final Yeaf\Proposal demo\ktas-pairwise-triage\scripts\tie_analysis.py:104: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho = spearmanr(w, truth).statistic
+gemini-decision-1: 200 sets with every arm complete; random tie-break draws per set: 1000
+
+tau-b, ties kept (as in the paper):
+  direct_each      0.518 [0.470, 0.563] | vs binwin_bt_swap -0.032 [-0.057, -0.006] | vs pairprob_bt -0.026 [-0.049, -0.003]
+  direct_set       0.529 [0.475, 0.580] | vs direct_each +0.011 [-0.029, +0.050] | vs binwin_bt_swap -0.020 [-0.059, +0.019] | vs pairprob_bt -0.015 [-0.052, +0.022]
+  optionwise       0.530 [0.484, 0.575] | vs direct_each +0.013 [-0.007, +0.032] | vs binwin_bt_swap -0.019 [-0.046, +0.007] | vs pairprob_bt -0.013 [-0.039, +0.012]
+  binwin_bt_fwd    0.520 [0.475, 0.565] | vs direct_each +0.003 [-0.024, +0.029] | vs binwin_bt_swap -0.029 [-0.044, -0.015] | vs pairprob_bt -0.023 [-0.041, -0.005]
+  binwin_bt_swap   0.549 [0.504, 0.594] | vs direct_each +0.032 [+0.006, +0.057] | vs pairprob_bt +0.006 [-0.010, +0.022]
+  pairprob_bt      0.543 [0.500, 0.586] | vs direct_each +0.026 [+0.003, +0.049] | vs binwin_bt_swap -0.006 [-0.022, +0.010]
+  pairprob_ahp     0.538 [0.496, 0.582] | vs direct_each +0.021 [-0.002, +0.044] | vs binwin_bt_swap -0.011 [-0.028, +0.007] | vs pairprob_bt -0.005 [-0.013, +0.004]
+  tieaware_d0.00   0.549 [0.503, 0.594] | vs direct_each +0.032 [+0.006, +0.056] | vs binwin_bt_swap +0.000 [-0.013, +0.013] | vs pairprob_bt +0.006 [-0.008, +0.020]
+  tieaware_d0.05   0.557 [0.512, 0.602] | vs direct_each +0.040 [+0.015, +0.064] | vs binwin_bt_swap +0.008 [-0.003, +0.019] | vs pairprob_bt +0.014 [+0.000, +0.028]
+  tieaware_d0.10   0.571 [0.525, 0.616] | vs direct_each +0.053 [+0.028, +0.078] | vs binwin_bt_swap +0.022 [+0.005, +0.038] | vs pairprob_bt +0.028 [+0.010, +0.045]
+  tieaware_d0.15   0.576 [0.531, 0.621] | vs direct_each +0.058 [+0.034, +0.083] | vs binwin_bt_swap +0.027 [+0.007, +0.047] | vs pairprob_bt +0.032 [+0.013, +0.052]
+  tieaware_d0.20   0.578 [0.532, 0.624] | vs direct_each +0.060 [+0.035, +0.086] | vs binwin_bt_swap +0.029 [+0.004, +0.054] | vs pairprob_bt +0.034 [+0.011, +0.057]
+  nurse            0.835 [0.800, 0.868]
+
+tau-b, model-score ties broken at random (same rule for every arm):
+  direct_each      0.518 [0.470, 0.563] | vs binwin_bt_swap -0.015 [-0.039, +0.010] | vs pairprob_bt -0.026 [-0.049, -0.003]
+  direct_set       0.429 [0.384, 0.471] | vs direct_each -0.089 [-0.125, -0.053] | vs binwin_bt_swap -0.104 [-0.138, -0.070] | vs pairprob_bt -0.115 [-0.147, -0.083]
+  optionwise       0.530 [0.484, 0.575] | vs direct_each +0.013 [-0.007, +0.032] | vs binwin_bt_swap -0.003 [-0.029, +0.024] | vs pairprob_bt -0.013 [-0.039, +0.012]
+  binwin_bt_fwd    0.516 [0.471, 0.561] | vs direct_each -0.001 [-0.028, +0.024] | vs binwin_bt_swap -0.017 [-0.030, -0.004] | vs pairprob_bt -0.027 [-0.045, -0.009]
+  binwin_bt_swap   0.533 [0.489, 0.576] | vs direct_each +0.015 [-0.010, +0.039] | vs pairprob_bt -0.011 [-0.026, +0.004]
+  pairprob_bt      0.543 [0.500, 0.586] | vs direct_each +0.026 [+0.003, +0.049] | vs binwin_bt_swap +0.011 [-0.004, +0.026]
+  pairprob_ahp     0.538 [0.496, 0.582] | vs direct_each +0.021 [-0.002, +0.044] | vs binwin_bt_swap +0.006 [-0.011, +0.023] | vs pairprob_bt -0.005 [-0.013, +0.004]
+  tieaware_d0.00   0.547 [0.501, 0.591] | vs direct_each +0.029 [+0.004, +0.053] | vs binwin_bt_swap +0.014 [+0.002, +0.027] | vs pairprob_bt +0.003 [-0.010, +0.017]
+  tieaware_d0.05   0.539 [0.496, 0.582] | vs direct_each +0.022 [-0.003, +0.046] | vs binwin_bt_swap +0.007 [-0.003, +0.017] | vs pairprob_bt -0.004 [-0.017, +0.010]
+  tieaware_d0.10   0.536 [0.491, 0.579] | vs direct_each +0.018 [-0.007, +0.042] | vs binwin_bt_swap +0.003 [-0.012, +0.018] | vs pairprob_bt -0.008 [-0.023, +0.008]
+  tieaware_d0.15   0.531 [0.489, 0.573] | vs direct_each +0.013 [-0.011, +0.037] | vs binwin_bt_swap -0.002 [-0.019, +0.015] | vs pairprob_bt -0.013 [-0.029, +0.004]
+  tieaware_d0.20   0.517 [0.477, 0.559] | vs direct_each -0.000 [-0.024, +0.024] | vs binwin_bt_swap -0.015 [-0.038, +0.006] | vs pairprob_bt -0.026 [-0.047, -0.006]
+  nurse            0.698 [0.667, 0.730]
+
+pair accuracy on pairs with differing expert levels (model tie = 0.5):
+  direct_each      0.809 [0.780, 0.837] | vs binwin_bt_swap -0.010 [-0.025, +0.006] | vs pairprob_bt -0.016 [-0.031, -0.002]
+  direct_set       0.756 [0.728, 0.782] | vs direct_each -0.053 [-0.075, -0.031] | vs binwin_bt_swap -0.063 [-0.085, -0.042] | vs pairprob_bt -0.069 [-0.090, -0.049]
+  optionwise       0.818 [0.790, 0.845] | vs direct_each +0.009 [-0.004, +0.022] | vs binwin_bt_swap -0.001 [-0.017, +0.015] | vs pairprob_bt -0.007 [-0.023, +0.009]
+  binwin_bt_fwd    0.809 [0.782, 0.836] | vs direct_each -0.000 [-0.017, +0.016] | vs binwin_bt_swap -0.010 [-0.018, -0.002] | vs pairprob_bt -0.016 [-0.027, -0.005]
+  binwin_bt_swap   0.819 [0.792, 0.845] | vs direct_each +0.010 [-0.006, +0.025] | vs pairprob_bt -0.006 [-0.016, +0.003]
+  pairprob_bt      0.825 [0.798, 0.851] | vs direct_each +0.016 [+0.002, +0.031] | vs binwin_bt_swap +0.006 [-0.003, +0.016]
+  pairprob_ahp     0.822 [0.795, 0.848] | vs direct_each +0.013 [-0.001, +0.027] | vs binwin_bt_swap +0.003 [-0.008, +0.014] | vs pairprob_bt -0.003 [-0.008, +0.002]
+  tieaware_d0.00   0.827 [0.799, 0.854] | vs direct_each +0.018 [+0.002, +0.033] | vs binwin_bt_swap +0.008 [+0.001, +0.016] | vs pairprob_bt +0.002 [-0.007, +0.010]
+  tieaware_d0.05   0.824 [0.797, 0.850] | vs direct_each +0.014 [-0.001, +0.030] | vs binwin_bt_swap +0.005 [-0.001, +0.012] | vs pairprob_bt -0.002 [-0.010, +0.008]
+  tieaware_d0.10   0.820 [0.794, 0.847] | vs direct_each +0.011 [-0.004, +0.026] | vs binwin_bt_swap +0.002 [-0.007, +0.011] | vs pairprob_bt -0.005 [-0.015, +0.006]
+  tieaware_d0.15   0.818 [0.793, 0.843] | vs direct_each +0.009 [-0.006, +0.023] | vs binwin_bt_swap -0.001 [-0.011, +0.009] | vs pairprob_bt -0.007 [-0.017, +0.004]
+  tieaware_d0.20   0.809 [0.784, 0.834] | vs direct_each -0.000 [-0.015, +0.015] | vs binwin_bt_swap -0.010 [-0.024, +0.004] | vs pairprob_bt -0.016 [-0.029, -0.003]
+  nurse            0.918 [0.899, 0.936]
+
+Spearman rho vs expert (average ranks for ties):
+  direct_each      0.586 [0.535, 0.635] | vs binwin_bt_swap -0.021 [-0.046, +0.004] | vs pairprob_bt -0.022 [-0.046, +0.002]
+  direct_set       0.555 [0.499, 0.607] | vs direct_each -0.031 [-0.072, +0.009] | vs binwin_bt_swap -0.052 [-0.092, -0.013] | vs pairprob_bt -0.053 [-0.090, -0.016]
+  optionwise       0.597 [0.547, 0.645] | vs direct_each +0.011 [-0.009, +0.032] | vs binwin_bt_swap -0.010 [-0.038, +0.017] | vs pairprob_bt -0.011 [-0.039, +0.016]
+  binwin_bt_fwd    0.584 [0.535, 0.632] | vs direct_each -0.002 [-0.028, +0.025] | vs binwin_bt_swap -0.023 [-0.037, -0.009] | vs pairprob_bt -0.023 [-0.041, -0.006]
+  binwin_bt_swap   0.607 [0.559, 0.654] | vs direct_each +0.021 [-0.004, +0.046] | vs pairprob_bt -0.001 [-0.016, +0.015]
+  pairprob_bt      0.608 [0.560, 0.654] | vs direct_each +0.022 [-0.002, +0.046] | vs binwin_bt_swap +0.001 [-0.015, +0.016]
+  pairprob_ahp     0.603 [0.556, 0.649] | vs direct_each +0.017 [-0.006, +0.041] | vs binwin_bt_swap -0.004 [-0.021, +0.013] | vs pairprob_bt -0.005 [-0.013, +0.004]
+  tieaware_d0.00   0.613 [0.563, 0.660] | vs direct_each +0.027 [+0.001, +0.052] | vs binwin_bt_swap +0.006 [-0.007, +0.019] | vs pairprob_bt +0.005 [-0.009, +0.020]
+  tieaware_d0.05   0.613 [0.564, 0.660] | vs direct_each +0.027 [+0.001, +0.053] | vs binwin_bt_swap +0.006 [-0.004, +0.018] | vs pairprob_bt +0.006 [-0.009, +0.021]
+  tieaware_d0.10   0.621 [0.572, 0.668] | vs direct_each +0.035 [+0.009, +0.060] | vs binwin_bt_swap +0.014 [-0.002, +0.030] | vs pairprob_bt +0.013 [-0.004, +0.031]
+  tieaware_d0.15   0.623 [0.575, 0.670] | vs direct_each +0.037 [+0.013, +0.062] | vs binwin_bt_swap +0.016 [-0.003, +0.035] | vs pairprob_bt +0.015 [-0.003, +0.034]
+  tieaware_d0.20   0.620 [0.572, 0.668] | vs direct_each +0.035 [+0.010, +0.060] | vs binwin_bt_swap +0.014 [-0.011, +0.038] | vs pairprob_bt +0.013 [-0.009, +0.035]
+  nurse            0.851 [0.816, 0.883]
+
+tied pairs per set (of 10): expert 3.0 | direct_each 0.00, direct_set 4.00, optionwise 0.00, binwin_bt_fwd 0.24, binwin_bt_swap 0.60, pairprob_bt 0.00, pairprob_ahp 0.00, tieaware_d0.00 0.12, tieaware_d0.05 0.67, tieaware_d0.10 1.18, tieaware_d0.15 1.50, tieaware_d0.20 1.94, nurse 3.10
+
+written: results_200\gemini-decision-1\tie_analysis_per_set.csv and paper_table_diagnostics.csv

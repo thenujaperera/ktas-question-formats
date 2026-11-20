@@ -1,0 +1,36 @@
+gemini-decision-1: 200 complete sets, 2000 pairs (1399 with differing expert levels)
+
+1. SATURATION
+  raw P(first), both orders    n=4000  beyond 0.95/0.05: 0.16  beyond 0.99/0.01: 0.04  median |p-0.5|: 0.278
+  order-averaged p_bar         n=2000  beyond 0.95/0.05: 0.16  beyond 0.99/0.01: 0.04  median |p-0.5|: 0.276
+  order flips (fwd and rev disagree on winner): 0.083
+  p_bar histogram [0,.01,.05,.2,.4,.6,.8,.95,.99,1]: [48, 127, 289, 340, 407, 333, 311, 110, 35]
+
+2. CALIBRATION (pairs with differing expert levels; y = 1 if a is more urgent per expert)
+  n=1399  accuracy (p_bar>0.5 matches expert): 0.831  Brier: 0.124  ECE(10 bins): 0.040
+  confidence bin   n   mean conf   accuracy
+  [0.50,0.60)   226   0.550      0.602
+  [0.60,0.80)   419   0.704      0.766
+  [0.80,0.95)   460   0.883      0.902
+  [0.95,0.99)   213   0.971      0.986
+  [0.99,1.00)    81   0.995      1.000
+
+3. VARIANTS (same sets; tau-b [95% CI]; paired gain [95% CI])  note: lambda does not change LLS rankings
+  direct_each                        tau 0.518 [0.470, 0.563]  top1 0.74 | vs binwin_bt_swap -0.032 [-0.057, -0.006]
+  binwin_bt_swap (plain wins)        tau 0.549 [0.504, 0.594]  top1 0.77 | vs direct_each +0.032 [+0.006, +0.057]
+  soft BT, clip eps=0.01             tau 0.543 [0.500, 0.586]  top1 0.78 | vs direct_each +0.026 [+0.003, +0.049] | vs binwin_bt_swap -0.006 [-0.022, +0.010]
+  log-odds AHP (=LLS), eps=0.01      tau 0.538 [0.496, 0.582]  top1 0.77 | vs direct_each +0.021 [-0.002, +0.044] | vs binwin_bt_swap -0.011 [-0.028, +0.007]
+  soft BT, clip eps=0.05             tau 0.543 [0.500, 0.586]  top1 0.78 | vs direct_each +0.026 [+0.003, +0.049] | vs binwin_bt_swap -0.006 [-0.022, +0.010]
+  log-odds AHP (=LLS), eps=0.05      tau 0.542 [0.499, 0.586]  top1 0.77 | vs direct_each +0.024 [+0.002, +0.047] | vs binwin_bt_swap -0.007 [-0.025, +0.010]
+  soft BT, clip eps=0.1              tau 0.545 [0.501, 0.589]  top1 0.78 | vs direct_each +0.028 [+0.005, +0.051] | vs binwin_bt_swap -0.004 [-0.019, +0.011]
+  log-odds AHP (=LLS), eps=0.1       tau 0.543 [0.499, 0.586]  top1 0.78 | vs direct_each +0.025 [+0.002, +0.048] | vs binwin_bt_swap -0.006 [-0.023, +0.010]
+  soft BT, clip eps=0.2              tau 0.548 [0.505, 0.591]  top1 0.78 | vs direct_each +0.031 [+0.008, +0.054] | vs binwin_bt_swap -0.001 [-0.015, +0.014]
+  log-odds AHP (=LLS), eps=0.2       tau 0.548 [0.505, 0.591]  top1 0.78 | vs direct_each +0.031 [+0.008, +0.054] | vs binwin_bt_swap -0.001 [-0.015, +0.014]
+  soft BT, lambda=0.25               tau 0.540 [0.496, 0.583]  top1 0.77 | vs direct_each +0.022 [-0.001, +0.045] | vs binwin_bt_swap -0.010 [-0.027, +0.007]
+  soft BT, lambda=0.5                tau 0.542 [0.499, 0.586]  top1 0.78 | vs direct_each +0.025 [+0.002, +0.048] | vs binwin_bt_swap -0.007 [-0.024, +0.010]
+  soft BT, lambda=2.0                tau 0.549 [0.505, 0.591]  top1 0.78 | vs direct_each +0.031 [+0.008, +0.055] | vs binwin_bt_swap -0.000 [-0.014, +0.013]
+  soft BT, cap |l|<=log 9            tau 0.545 [0.501, 0.589]  top1 0.78 | vs direct_each +0.028 [+0.005, +0.051] | vs binwin_bt_swap -0.004 [-0.019, +0.011]
+  log-odds AHP, cap |l|<=log 9       tau 0.542 [0.498, 0.585]  top1 0.78 | vs direct_each +0.024 [+0.001, +0.047] | vs binwin_bt_swap -0.007 [-0.024, +0.009]
+  Borda on p_bar                     tau 0.543 [0.500, 0.586]  top1 0.78 | vs direct_each +0.026 [+0.003, +0.049] | vs binwin_bt_swap -0.006 [-0.022, +0.010]
+
+written: results_200\gemini-decision-1\prob_diagnostics_pairs.csv and prob_diagnostics_variants.csv
