@@ -2,14 +2,22 @@
 
 Does the **question format** change how well a language model (or a single-pass "decision model") ranks emergency patients by urgency? Same patients, same model, different formats: direct KTAS level vs pairwise comparisons aggregated with Bradley-Terry or AHP, scored against the **expert KTAS** label, with the cost in model calls.
 
-## Quick start (Google Colab, tonight)
+## Quick start
 
-1. Open `notebooks/ktas_question_formats.ipynb` in Colab (File > Upload notebook).
-2. Add `GEMINI_API_KEY` in Colab Secrets (key icon, left sidebar).
-3. Run all cells. When asked, upload `ktas-pairwise-triage.zip` (or set `REPO_URL` to your GitHub copy).
-4. Download `results.zip` at the end: `summary.csv`, `calls_vs_tau.png`, per-set and per-patient CSVs.
+**Local (Windows / macOS / Linux, Python 3.10+)**
 
-The run stops cleanly at a quota and resumes from the cache when you rerun the cell.
+```bash
+git clone https://github.com/thenujaperera/ahp-killtest
+cd ahp-killtest
+pip install -r requirements.txt pytest
+python -m pytest -q tests          # offline checks, no API key needed
+```
+
+Set `GEMINI_API_KEY` in your environment (PowerShell: `setx GEMINI_API_KEY "<key>"`, then open a new terminal). Never commit the key.
+
+**Google Colab:** open `notebooks/ktas_question_formats.ipynb` and run all cells. Cell 1 clones this repository; add the key with Colab Secrets or a `getpass` cell. Download `results.zip` at the end.
+
+Every model answer is cached in `results/<model>/cache.jsonl` (git-ignored), so a run stopped by a quota resumes where it left off.
 
 ## Command line
 
@@ -19,7 +27,14 @@ python -m pytest -q tests                                   # offline checks, no
 python -m ktriage --model gemini-3.5-flash-lite --backend gemini --n-sets 10 \
     --seed-cache data/pilot_cache_gemini-3.5-flash-lite.jsonl
 python -m ktriage --model qwen2.5:7b --backend openai --base-url http://localhost:11434/v1 --rpm 0
+
+# decision model (Gemini Decisions API): check access first, then run 20 sets
+python -c "from ktriage import decisions; decisions.probe('gemini-decision-1')"
+python -m ktriage --model gemini-decision-1 --backend decision --n-sets 20 \
+    --arms direct_set,direct_each,optionwise,pairprob_bt,pairprob_ahp --rpm 150 --max-calls 2000
 ```
+
+`results/summary.csv` and `results/calls_vs_tau.png` are rebuilt from every model in `results/` after each run.
 
 ## Arms
 
@@ -44,7 +59,7 @@ Per set: Kendall tau-b between the priority vector and expert KTAS (level 1 = mo
 
 * `gemini`: Google Gemini API, key in `GEMINI_API_KEY`. Free tier is about 15 requests/min and a daily cap, so `--rpm 14 --max-calls 480`.
 * `openai`: any OpenAI-compatible `/chat/completions` endpoint (Ollama, vLLM, Groq, OpenRouter, or a decision-model provider that offers one). Key in `OPENAI_API_KEY`. **Not tested against any decision-model API.**
-* `decision`: Gemini Decisions API (`gemini-decision-1`, `POST /v1beta/decisions`), key in `GEMINI_API_KEY`. Arms `direct_each` (ordered rubric), `optionwise` (yes/no, 5 questions in one request), `pairprob_*` (A/B choice per order), `direct_set` (5 rubric questions, one request). Probabilities come from the API (`source = native`); `calls` counts questions. Request format is from third-party guides of 12 Nov 2026: run `ktriage.decisions.probe()` first. `decision-fake` is its offline stand-in.
+* `decision`: Gemini Decisions API (`gemini-decision-1`, `POST /v1beta/decisions`), key in `GEMINI_API_KEY`. Arms `direct_each` (ordered rubric), `optionwise` (yes/no, 5 questions in one request), `pairprob_*` (A/B choice per order), `direct_set` (5 rubric questions, one request). Probabilities come from the API (`source = native`); `calls` counts questions. Format checked against a live response on 20 Nov 2026 (score answers return option index `"0"`-`"4"`, lowest urgency first, plus a `legend`; the code maps index i to KTAS 5 - i). Run `ktriage.decisions.probe()` first to confirm your key has access. `decision-fake` is its offline stand-in.
 * `mock`: offline fake model for tests. Its numbers mean nothing.
 
 ## Data
@@ -79,14 +94,17 @@ Pairwise reformulation did not beat one-patient-per-call for either model (CIs i
 
 ## Limits
 
-Small n (10 sets of 5 = 50 patients per model by default), one dataset from one country, many tied levels, possible training-data exposure (the data has been public since 2019). Use the CIs; do not claim significance from 10 sets.
+Small n (19 sets of 5 for the decision model, 10 for Gemini Flash-Lite), one dataset from one country, many tied levels, possible training-data exposure (the data has been public since 2019). Gemini Flash-Lite returned no logprobs, so its probability arms are hard 0/1 answers. The same prompts give slightly different answers between runs (Flash-Lite `direct_each` 0.60 in Colab vs 0.56 on the PC). Use the CIs; do not claim significance from these sample sizes.
 
 ## Layout
 
 ```
-ktriage/        data.py prompts.py backends.py aggregate.py experiment.py analysis.py __main__.py
+ktriage/        data.py prompts.py backends.py decisions.py aggregate.py experiment.py analysis.py __main__.py
 notebooks/      ktas_question_formats.ipynb
 tests/          test_offline.py
-data/           ktas_data.csv, pilot cache
-results_pilot_cache/   real numbers from the cached pilot calls
+data/           ktas_data.csv, pilot cache (477 Gemini answers, Oct 2026)
+results/                    new runs go here (caches git-ignored)
+results_pc_2026-11-20/      main results: decision model (19 sets) + Gemini Flash-Lite (10 sets)
+results_colab_2026-11-20/   earlier Gemini Flash-Lite run on the same sets
+results_pilot_cache/        cache-only rerun of the Oct 2026 pilot
 ```
