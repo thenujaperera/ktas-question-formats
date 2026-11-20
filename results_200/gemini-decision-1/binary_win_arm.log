@@ -1,0 +1,6 @@
+gemini-decision-1: 200 complete sets
+direct_each     calls  5  tau 0.518 [0.470, 0.563]  top1 0.74  vs pairprob_bt -0.026 [-0.049, -0.003]
+binwin_bt_fwd   calls 10  tau 0.520 [0.475, 0.565]  top1 0.76  vs direct_each +0.003 [-0.024, +0.029]  vs pairprob_bt -0.023 [-0.041, -0.005]
+binwin_bt_swap  calls 20  tau 0.549 [0.504, 0.594]  top1 0.77  vs direct_each +0.032 [+0.006, +0.057]  vs pairprob_bt +0.006 [-0.010, +0.022]
+pairprob_bt     calls 20  tau 0.543 [0.500, 0.586]  top1 0.78  vs direct_each +0.026 [+0.003, +0.049]
+per-set rows written to results_200\gemini-decision-1\binary_win_rq2.csv
