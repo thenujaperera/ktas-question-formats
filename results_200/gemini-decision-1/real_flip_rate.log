@@ -1,0 +1,10 @@
+gemini-decision-1: 200 sets, 10000 bootstrap resamples of sets (seed 0)
+
+  F1_rounded vs F1     tau diff +0.056  pairacc diff -0.004  ties/set 2.29 vs 0.00
+                       P(tau-b prefers first) 1.000  P(pair acc prefers first) 0.245  P(metrics disagree) 0.755
+  F0 vs F1             tau diff +0.011  pairacc diff -0.053  ties/set 4.00 vs 0.00
+                       P(tau-b prefers first) 0.710  P(pair acc prefers first) 0.000  P(metrics disagree) 0.710
+  Copeland vs F4       tau diff +0.028  pairacc diff -0.005  ties/set 1.18 vs 0.00
+                       P(tau-b prefers first) 1.000  P(pair acc prefers first) 0.186  P(metrics disagree) 0.813
+
+written: results_200\gemini-decision-1\real_flip_rate.csv and real_flip_rate_per_set.csv
