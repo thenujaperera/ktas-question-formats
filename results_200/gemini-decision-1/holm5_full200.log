@@ -1,0 +1,11 @@
+endpoint            arm    diff      p  p_holm5  n_sets
+     tau     direct_set  0.0111 0.5947   1.0000     200
+     tau     optionwise  0.0125 0.2295   0.6885     200
+     tau  binwin_bt_fwd  0.0026 0.8526   1.0000     200
+     tau binwin_bt_swap  0.0315 0.0160   0.0800     200
+     tau    pairprob_bt  0.0258 0.0305   0.1220     200
+ pairacc     direct_set -0.0534 0.0000   0.0000     200
+ pairacc     optionwise  0.0088 0.1938   0.5814     200
+ pairacc  binwin_bt_fwd -0.0002 0.9794   0.9794     200
+ pairacc binwin_bt_swap  0.0097 0.2163   0.5814     200
+ pairacc    pairprob_bt  0.0160 0.0315   0.1260     200
