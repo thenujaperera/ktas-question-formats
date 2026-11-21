@@ -32,11 +32,10 @@ elif kind == "heart":
     d = pd.read_csv(sys.argv[2], header=None, na_values="?"); y = d.iloc[:, -1].astype(int).values
     X = d.iloc[:, :-1].values; high_is_urgent = True; sets = None
 print(kind, "n =", len(y), "labels", dict(zip(*np.unique(y, return_counts=True))))
-if sets is None:                       # 1000 random sets of 5 with at least two distinct labels
-    sets = []
-    while len(sets) < 1000:
-        s = rng.choice(len(y), 5, replace=False)
-        if len(set(y[s])) > 1: sets.append(s)
+if sets is None:                       # disjoint sets of 5 (no patient reused), kept if at least two distinct labels
+    perm = rng.permutation(len(y))
+    sets = [perm[i:i + 5] for i in range(0, len(y) - 4, 5)]
+    sets = [s for s in sets if len(set(y[s])) > 1]
 from sklearn.ensemble import RandomForestClassifier
 oof = {}
 cv = StratifiedKFold(5, shuffle=True, random_state=0)
