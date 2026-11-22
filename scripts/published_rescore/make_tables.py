@@ -29,7 +29,7 @@ for asp in ['coherence','consistency','fluency','relevance']:
     for _,r in w[w.aspect==asp].iterrows():
         W.append(f"| {asp.capitalize()} | {bn[r.B]} | {r.tauA:.3f} / {r.tauB:.3f} | {ci(r.dtau,r.dtau_lo,r.dtau_hi)} | {ci(r.dD,r.dD_lo,r.dD_hi)} | {ci(r.dacc,r.dacc_lo,r.dacc_hi)} |")
 tables['TABLE_WANG']="\n".join(W)
-E=["| Aspect | Single rating | τ-b level / mean | Δτ-b [95% CI] | Δd [95% CI] | Δacc* [95% CI] | Tied pairs (level) |","|---|---|---|---|---|---|---|"]
+E=["| Aspect | Single rating | τ-b single / mean | Δτ-b [95% CI] | Δd [95% CI] | Δacc* [95% CI] | Tied pairs (single) |","|---|---|---|---|---|---|---|"]
 for _,r in d[d.study=='G-Eval (proxy)'].iterrows():
     E.append(f"| {r.aspect.capitalize()} | {'Mode of 20' if r.A=='mode' else 'First sample'} | {r.tauA:.3f} / {r.tauB:.3f} | {ci(r.dtau,r.dtau_lo,r.dtau_hi)} | {ci(r.dD,r.dD_lo,r.dD_hi)} | {ci(r.dacc,r.dacc_lo,r.dacc_hi)} | {100*r.tiesA:.0f}% |")
 tables['TABLE_GEVAL']="\n".join(E)

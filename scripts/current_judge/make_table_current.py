@@ -1,6 +1,7 @@
 """Adds TABLE_CURRENT to tables.json from current_judge_summary.csv and current_judge_compare.csv."""
 import pandas as pd, sys, json
 S = pd.read_csv(sys.argv[1]); C = pd.read_csv(sys.argv[2]); out = sys.argv[3]; T = json.load(open(out))
+S = S[S.judge.str.startswith("decision")]; C = C[C.judge.str.startswith("decision")]  # Flash-Lite pilot (30 docs) not reported
 f = lambda x: f"{x:+.3f}".replace("-", "−")
 nm = {"decision_gemini-decision-1": "Gemini Decision 1", "gemini_gemini-3.5-flash-lite": "Gemini 3.5 Flash-Lite"}
 rows = ["| Judge, aspect | Score | Summaries / documents | τ-b | d | Ties | TC [95% CI] |", "|---|---|---|---|---|---|---|"]

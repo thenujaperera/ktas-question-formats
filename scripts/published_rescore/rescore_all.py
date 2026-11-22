@@ -82,6 +82,11 @@ def summary_level(m, keys):
         if A > 0: tau[k] = t
     return tau, d
 
+def bp(b):
+    """Two-sided bootstrap p-value: twice the smaller share of resampled differences on either side of zero."""
+    b = np.asarray(b, float); b = b[~np.isnan(b)]
+    return min(1.0, 2 * min((b <= 0).mean(), (b >= 0).mean()))
+
 def compare(study, aspect, level, nameA, mA, nameB, mB, rows):
     keys = sorted(set(mA.g) & set(mB.g))
     if level == "summary":
@@ -123,7 +128,7 @@ def compare(study, aspect, level, nameA, mA, nameB, mB, rows):
         ngroups = len(keys)
     rows.append(dict(study=study, aspect=aspect, level=level, A=nameA, B=nameB, groups=ngroups,
                      tauA=tauA, tauB=tauB, dtau=tauA - tauB, dtau_lo=np.nanpercentile(bt, 2.5), dtau_hi=np.nanpercentile(bt, 97.5),
-                     dD=dd, dD_lo=np.percentile(bd, 2.5), dD_hi=np.percentile(bd, 97.5),
+                     dD=dd, dD_lo=np.percentile(bd, 2.5), dD_hi=np.percentile(bd, 97.5), p_tau=bp(bt), p_D=bp(bd),
                      accA=accs[0], accB=accs[1], dacc=accs[0] - accs[1], dacc_lo=np.percentile(ba, 2.5), dacc_hi=np.percentile(ba, 97.5), tiesA=tieA, tiesB=tieB))
 
 rows = []
@@ -234,6 +239,10 @@ R["reversal_sig"] = R.disagree & R.D_sig                      # tau-b points the
 R["opposite_both_sig"] = R.disagree & R.D_sig & R.tau_sig
 R["acc_disagree_D"] = np.sign(R.dacc) != np.sign(R.dD)
 R["dties"] = R.tiesA - R.tiesB
+def bh(p):   # Benjamini-Hochberg adjusted p-values
+    p = np.asarray(p); o = np.argsort(p); n = len(p); q = p[o] * n / np.arange(1, n + 1)
+    q = np.minimum.accumulate(q[::-1])[::-1]; out = np.empty(n); out[o] = np.minimum(q, 1); return out
+R["q_tau"] = bh(R.p_tau); R["q_D"] = bh(R.p_D)
 os.makedirs(out_dir, exist_ok=True); R.to_csv(f"{out_dir}/rescore_all.csv", index=False)
 summ = R.groupby("study").agg(comparisons=("disagree", "size"), tau_vs_D_disagree=("disagree", "sum"), D_significant=("D_sig", "sum"),
                               reversal_vs_sig_D=("reversal_sig", "sum"), both_sig_opposite=("opposite_both_sig", "sum"),
