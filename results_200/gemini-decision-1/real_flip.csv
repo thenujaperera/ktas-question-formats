@@ -1,0 +1,7 @@
+comparison,dtau,dpair,tau_prefers_first,pair_prefers_first
+F1 rounded to half levels vs F1,0.056,-0.004,1.0,0.245
+F1 rounded to whole levels vs F1,0.018,-0.056,0.852,0.0
+F4 rounded to 0.5 vs F4,0.018,-0.009,0.987,0.052
+F0 whole set vs F1,0.011,-0.053,0.716,0.0
+Tie-aware Copeland vs F4 (same answers),0.028,-0.005,0.999,0.19
+Plain wins vs probabilities (same answers),0.006,-0.006,0.761,0.095

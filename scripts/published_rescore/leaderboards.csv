@@ -1,0 +1,21 @@
+study,aspect,methods,top_tau,top_d,top_changes,moved,max_move,rank_tau,most_tied,most_tied_rank_tau,most_tied_rank_d
+G-Eval (proxy),coherence,3,mode,mean,True,2,1,0.33333333333333337,mode,1,2
+G-Eval (proxy),consistency,3,mode,mean,True,3,2,-0.33333333333333337,mode,1,2
+G-Eval (proxy),fluency,3,mode,mean,True,2,2,-1.0,mode,1,3
+G-Eval (proxy),relevance,3,mean,mean,False,0,0,1.0,mode,2,2
+Wang et al.,coherence,10,ChatGPT stars,bart_score_cnn_src_hypo,True,3,2,0.911111111111111,ChatGPT stars,1,3
+Wang et al.,relevance,10,ChatGPT stars,ChatGPT stars,False,0,0,0.9999999999999999,ChatGPT stars,1,1
+Wang et al.,consistency,10,ChatGPT stars,bart_score_para_src_hypo,True,3,2,0.911111111111111,ChatGPT stars,1,3
+Wang et al.,fluency,10,ChatGPT stars,bart_score_para_src_hypo,True,3,2,0.911111111111111,ChatGPT stars,1,3
+Shen et al.,coherence,6,GPT-4 rts,ChatGPT rts,True,5,4,-0.06666666666666665,ChatGPT altrts,6,6
+Shen et al.,consistency,6,GPT-4 rts,ChatGPT rts,True,5,2,0.3333333333333333,GPT-4 rts,1,3
+Shen et al.,fluency,6,GPT-4 rts,GPT-4 rts,False,2,1,0.8666666666666666,ChatGPT mcq,2,2
+Shen et al.,relevance,6,GPT-4 rts,ChatGPT rts,True,4,4,0.3333333333333333,ChatGPT altmcq,6,6
+Chiang & Lee SummEval,coherence,5,analyze_rate,analyze_rate,False,0,0,0.9999999999999999,geval_no_auto_cot,5,5
+Chiang & Lee SummEval,consistency,5,analyze_rate,analyze_rate,False,0,0,0.9999999999999999,free_text_no_auto_cot,3,3
+Chiang & Lee SummEval,fluency,5,rate_explain,rate_explain,False,0,0,0.9999999999999999,geval_no_auto_cot,5,5
+Chiang & Lee SummEval,relevance,5,rate_explain,rate_explain,False,0,0,0.9999999999999999,geval_no_auto_cot,4,4
+Chiang & Lee Topical-Chat,naturalness,6,rate_explain,rate_explain,False,0,0,0.9999999999999999,analyze_rate,4,4
+Chiang & Lee Topical-Chat,coherence,6,rate_explain_auto_cot,rate_explain_auto_cot,False,2,1,0.8666666666666666,analyze_rate_auto_cot,4,5
+Chiang & Lee Topical-Chat,engagingness,6,analyze_rate_auto_cot,analyze_rate_auto_cot,False,0,0,0.9999999999999999,rate_explain_auto_cot,2,2
+Chiang & Lee Topical-Chat,groundedness,6,analyze_rate_auto_cot,analyze_rate_auto_cot,False,3,2,0.7333333333333333,analyze_rate,2,4

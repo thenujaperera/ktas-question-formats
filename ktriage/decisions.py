@@ -90,7 +90,7 @@ class DecisionClient:
                 break
             except urllib.error.HTTPError as e:
                 msg = e.read().decode(errors="ignore")
-                if e.code == 429 and "PerDay" in msg:
+                if e.code == 429 and ("PerDay" in msg or "per day" in msg.lower()):
                     raise OutOfCalls("provider daily quota reached")
                 if e.code in (429, 500, 502, 503, 504):
                     time.sleep(min(60, 5 * (attempt + 1)))
