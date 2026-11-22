@@ -38,7 +38,7 @@ python -I scripts/published_rescore/make_tables_tc.py out/tiecredit_methods.csv 
 
 ### Appendix B checks (KTAS, cache only)
 
-`scripts/metric/` (rounding and level-vs-expected checks on KTAS and the UCI wine data; `results_metric/`), `scripts/tie_credit.py`, `scripts/real_flip.py` and `scripts/review12.py` read the per-set CSVs and cached answers in `results_200/gemini-decision-1/`. The code that produced those answers (the `ktriage` package) is in the KTAS repository above.
+`scripts/metric/` (rounding and level-vs-expected checks on KTAS and the UCI wine data; `results_metric/`), `scripts/tie_credit.py`, `scripts/real_flip.py` and `scripts/review12.py` read the per-set CSVs and cached answers in `results_200/gemini-decision-1/`. The full question-format study (all runs and analyses) is in the KTAS repository above.
 
 ## Layout
 
