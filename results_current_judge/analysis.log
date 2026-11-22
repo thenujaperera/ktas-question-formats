@@ -1,0 +1,10 @@
+                       judge      aspect    score  summaries  groups  tau_b     d  pair_acc  ties  tau_rand    tc  tc_lo  tc_hi
+  decision_gemini-decision-1 consistency  integer       1600      96  0.682 0.721     0.860 0.645     0.399 0.276  0.252  0.301
+  decision_gemini-decision-1 consistency weighted       1600      96  0.461 0.828     0.914 0.005     0.460 0.001  0.001  0.001
+  decision_gemini-decision-1   relevance  integer       1600     100  0.447 0.403     0.702 0.307     0.374 0.073  0.066  0.081
+  decision_gemini-decision-1   relevance weighted       1600     100  0.415 0.447     0.723 0.005     0.414 0.001  0.001  0.001
+gemini_gemini-3.5-flash-lite   relevance  integer        475      30  0.504 0.461     0.731 0.277     0.429 0.075  0.064  0.086
+
+                     judge      aspect  summaries  d_tau_b  d_tau_b_lo  d_tau_b_hi    d_d  d_d_lo  d_d_hi  d_tc  d_tc_lo  d_tc_hi                                                       verdict
+decision_gemini-decision-1 consistency       1600    0.221       0.185       0.256 -0.107  -0.146  -0.069 0.275    0.251    0.300 tau-b and d disagree; tau-b favours ranker 1, which ties more
+decision_gemini-decision-1   relevance       1600    0.032       0.016       0.048 -0.043  -0.060  -0.026 0.072    0.065    0.079 tau-b and d disagree; tau-b favours ranker 1, which ties more
