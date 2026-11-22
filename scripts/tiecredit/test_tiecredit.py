@@ -1,5 +1,6 @@
 """Checks for tiecredit.py. Run: python test_tiecredit.py [wang_summeval.json tiecredit_methods.csv]"""
-import sys, itertools, json
+import os, sys, itertools, json
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))  # works with python -I too
 import numpy as np
 from scipy.stats import kendalltau
 from tiecredit import pair_stats, tie_report, compare

@@ -5,3 +5,5 @@ results/*/cache.jsonl
 .env
 .venv/
 .claude/settings.local.json
+external/
+repro_out/
