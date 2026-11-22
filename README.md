@@ -1,6 +1,6 @@
-# When Ties Change the Verdict: code and data
+# Tie credit in LLM-judge evaluation: code and data
 
-Code and data for **"When Ties Change the Verdict: Re-scoring Published Comparisons of Large Language Model Judges"** (IEEE Access draft, Nov 2026).
+Code and data for **"How Much of a Language Model Judge's Kendall Tau Comes from Ties? Re-scoring Published Comparisons with Tie Credit"** (IEEE Access draft, Nov 2026).
 
 The KTAS question-format study that this work grew out of now lives in its own repository: https://github.com/thenujaperera/ktas-pairwise-triage. Its cached decision-model answers are kept here (`results_200/gemini-decision-1/`, `data/ktas_data.csv`) because Appendix B of this paper re-scores them.
 
@@ -51,3 +51,12 @@ scripts/*.py               Appendix B KTAS checks (cache only)
 results_200/gemini-decision-1/  cached decision-model answers and per-set CSVs (KTAS)
 data/ktas_data.csv         KTAS dataset (Moon et al. 2019, PLOS ONE, CC BY 4.0)
 ```
+
+### Appendix B (clinical example), cache only
+
+`ktriage/` (the decision-model client and set sampler) and `scripts/soundness.py` are kept only so that the clinical example re-runs from the cached answers, with no new requests:
+
+```bash
+python scripts/tie_credit.py      # writes results_200/gemini-decision-1/tie_credit.csv (direct_set TC 0.101; pair accuracy (1+d)/2)
+```
+
