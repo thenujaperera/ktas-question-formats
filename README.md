@@ -2,8 +2,6 @@
 
 Code and data for **"How Much of a Language Model Judge's Kendall Tau Comes from Ties? Re-scoring Published Comparisons with Tie Credit"** (IEEE Access draft, Nov 2026).
 
-The KTAS question-format study that this work grew out of now lives in its own repository: https://github.com/thenujaperera/Ktas-pairwise-triage. Its cached decision-model answers are kept here (`results_200/gemini-decision-1/`, `data/ktas_data.csv`) because Appendix B of this paper re-scores them.
-
 ### The `tiecredit` tool
 
 `scripts/tiecredit/tiecredit.py` is one file (NumPy + SciPy; pandas for the command line). For each method it reports Kendall tau-b, Somers' d, pair accuracy, tie share, the tau-b expected if ties were broken at random (`tau_rand = d*sqrt(B/n0)`) and **tie credit** `TC = tau_b - tau_rand`, with a bootstrap interval over groups. For two methods it gives the differences with intervals and the reversal check `d2/d1 > sqrt(A2/A1)`; for several methods, a leaderboard by tau-b and by d.
@@ -38,7 +36,7 @@ python -I scripts/published_rescore/make_tables_tc.py out/tiecredit_methods.csv 
 
 ### Appendix B checks (KTAS, cache only)
 
-`scripts/metric/` (rounding and level-vs-expected checks on KTAS and the UCI wine data; `results_metric/`), `scripts/tie_credit.py`, `scripts/real_flip.py` and `scripts/review12.py` read the per-set CSVs and cached answers in `results_200/gemini-decision-1/`. The full question-format study (all runs and analyses) is in the KTAS repository above.
+`scripts/metric/` (rounding and level-vs-expected checks on KTAS and the UCI wine data; `results_metric/`), `scripts/tie_credit.py`, `scripts/real_flip.py` and `scripts/review12.py` read the per-set CSVs and cached answers in `results_200/gemini-decision-1/`.
 
 ## Layout
 
