@@ -2,8 +2,6 @@
 
 Code and data for **"How Much of a Language Model Judge's Kendall Tau Comes from Ties? Re-scoring Published Comparisons with Tie Credit"** (IEEE Access draft, Nov 2026).
 
-The KTAS question-format study that this work grew out of now lives in its own repository: https://github.com/thenujaperera/Ktas-pairwise-triage. Its cached decision-model answers are kept here (`results_200/gemini-decision-1/`, `data/ktas_data.csv`) because Appendix B of this paper re-scores them.
-
 ### The `tiecredit` tool
 
 `scripts/tiecredit/tiecredit.py` is one file (NumPy + SciPy; pandas for the command line). For each method it reports Kendall tau-b, Somers' d, pair accuracy, tie share, the tau-b expected if ties were broken at random (`tau_rand = d*sqrt(B/n0)`) and **tie credit** `TC = tau_b - tau_rand`, with a bootstrap interval over groups. For two methods it gives the differences with intervals and the reversal check `d2/d1 > sqrt(A2/A1)`; for several methods, a leaderboard by tau-b and by d.
