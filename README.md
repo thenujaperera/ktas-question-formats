@@ -2,7 +2,7 @@
 
 Code and data for **"How Much of a Language Model Judge's Kendall Tau Comes from Ties? Re-scoring Published Comparisons with Tie Credit"** (IEEE Access draft, Nov 2026).
 
-The KTAS question-format study that this work grew out of now lives in its own repository: https://github.com/thenujaperera/ktas-pairwise-triage. Its cached decision-model answers are kept here (`results_200/gemini-decision-1/`, `data/ktas_data.csv`) because Appendix B of this paper re-scores them.
+The KTAS question-format study that this work grew out of now lives in its own repository: https://github.com/thenujaperera/Ktas-pairwise-triage. Its cached decision-model answers are kept here (`results_200/gemini-decision-1/`, `data/ktas_data.csv`) because Appendix B of this paper re-scores them.
 
 ### The `tiecredit` tool
 
