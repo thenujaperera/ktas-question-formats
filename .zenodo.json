@@ -1,0 +1,11 @@
+{
+  "title": "tie-credit-llm-judges: Tie-credit tool and re-scoring code",
+  "upload_type": "software",
+  "description": "Code for the paper \"How Much of a Language Model Judge's Kendall Tau Comes from Ties? Re-scoring Published Comparisons with Tie Credit\". Contains tiecredit (a single-file Python tool that splits Kendall's tau-b into a tie-free part and tie credit, with bootstrap intervals, Somers' D and pair accuracy), the re-scoring code for four published LLM-judge studies, the scripts for the 2026 current-judge run, and the checks in Appendix B.",
+  "creators": [
+    {"name": "Perera, Thenuja", "affiliation": "Informatics Institute of Technology, Colombo, Sri Lanka"}
+  ],
+  "keywords": ["Kendall's tau", "ties", "Somers' D", "LLM-as-a-judge", "meta-evaluation", "natural language generation", "pairwise accuracy"],
+  "license": "MIT",
+  "language": "eng"
+}

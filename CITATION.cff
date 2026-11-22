@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "tie-credit-llm-judges: Tie-credit tool and re-scoring code"
+authors:
+  - family-names: Perera
+    given-names: Thenuja
+    affiliation: "Informatics Institute of Technology, Colombo, Sri Lanka"
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/thenujaperera/tie-credit-llm-judges"
