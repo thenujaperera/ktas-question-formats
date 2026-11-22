@@ -1,7 +1,5 @@
 # When Ties Change the Verdict: code and data
 
-
-
 Code and data for **"When Ties Change the Verdict: Re-scoring Published Comparisons of Large Language Model Judges"** (IEEE Access draft, Nov 2026).
 
 The KTAS question-format study that this work grew out of now lives in its own repository: https://github.com/thenujaperera/ktas-pairwise-triage. Its cached decision-model answers are kept here (`results_200/gemini-decision-1/`, `data/ktas_data.csv`) because Appendix B of this paper re-scores them.
