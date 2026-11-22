@@ -1,11 +1,11 @@
-# Code for two papers
+# Tie credit in LLM-judge evaluation, and the KTAS triage study
 
-This repository holds the code and data for two related papers.
+This repository holds the code and data for the paper **"How Much of a Language Model Judge's Kendall Tau Comes from Ties? Re-scoring Published Comparisons with Tie Credit"** (IEEE Access draft, Nov 2026), and for the KTAS triage study that it grew out of.
 
-1. **"When Ties Change the Verdict: Re-scoring Published Comparisons of Large Language Model Judges"** (IEEE Access draft, Nov 2026). Code: `scripts/published_rescore/`. See the section below.
-2. **The KTAS question-format study** (`ktriage` package, described further down). Its cached decision-model answers and the rounding checks (`scripts/metric/`) also supply the supporting checks in Section VI of paper 1.
+1. **The paper** (tie credit): the `tiecredit` tool in `scripts/tiecredit/` and the re-scoring code in `scripts/published_rescore/`. See the section below.
+2. **The KTAS triage study** (`ktriage` package, described further down): asking a decision model about emergency patients in different ways. Its cached answers and the rounding checks (`scripts/metric/`) supply Appendix B of the paper.
 
-## Paper 1: tie credit in LLM-judge evaluation (re-scoring published studies)
+## The paper: tie credit in LLM-judge evaluation (re-scoring published studies)
 
 ### The `tiecredit` tool
 
