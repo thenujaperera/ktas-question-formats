@@ -41,6 +41,31 @@ def eps_grid(groups_pred):
     nz = allad[allad > 0]
     return np.unique(np.concatenate([[0.0], np.quantile(nz, np.linspace(0, 1, 41)) if len(nz) else []]))
 
+
+B_ACC_DATASET = 1000
+_acc_cache = {}
+def acc_boot_dataset(m, keys, h):
+    """Bootstrap acc* over documents for a pooled (dataset-level) method; epsilon re-tuned in every resample.
+    The same document resamples (fixed seed) are used for every method on the same item set."""
+    ck = (id(m), tuple(keys), hash(np.asarray(h).tobytes()))
+    if ck in _acc_cache: return _acc_cache[ck]
+    p = np.round(np.concatenate([m.g[k][0] for k in keys]), 9)
+    sizes = [len(m.g[k][0]) for k in keys]; doc = np.repeat(np.arange(len(keys)), sizes)
+    i, j = np.triu_indices(len(p), 1)
+    dp, dh = p[i] - p[j], h[i] - h[j]; ad = np.abs(dp)
+    tt = (dh == 0); ag = (np.sign(dp) == np.sign(dh)) & (dh != 0)
+    o = np.argsort(ad, kind="stable"); ad, i, j, tt, ag = ad[o], i[o], j[o], tt[o], ag[o]
+    sub = np.random.default_rng(7).choice(len(p), min(len(p), 1200), replace=False)
+    eps = eps_grid([p[sub]]); pos = np.searchsorted(ad, eps, side="right")
+    rs = np.random.default_rng(12345); out = []
+    for _ in range(B_ACC_DATASET):
+        wd = np.bincount(rs.integers(0, len(keys), len(keys)), minlength=len(keys)).astype(float); w = wd[doc]
+        pw = w[i] * w[j]; ctt = np.concatenate([[0], np.cumsum(pw * tt)]); cag = np.concatenate([[0], np.cumsum(pw * ag)])
+        corr = ctt[pos] + (cag[-1] - cag[pos])
+        self_pairs = (w * (w - 1) / 2).sum(); W = w.sum()
+        out.append(((corr + self_pairs) / (W * (W - 1) / 2)).max())
+    _acc_cache[ck] = np.array(out); return _acc_cache[ck]
+
 class Method:
     """Scores of one method on a study: dict group -> (pred array, human array)."""
     def __init__(self, groups): self.g = groups
@@ -70,13 +95,13 @@ def compare(study, aspect, level, nameA, mA, nameB, mB, rows):
         bt = np.nanmean(tAk[idx], 1) - np.nanmean(tBk[idx], 1); bd = (dAv - dBv)[idx].mean(1)
         dd = (dAv - dBv).mean()
         # acc* with one epsilon per method, chosen on all groups, averaged per group (group-by-item)
-        accs = []
+        accs, accboot = [], []
         for m in (mA, mB):
             eps = eps_grid([m.g[k][0] for k in kd])
-            tot = np.zeros(len(eps)); cnt = 0
-            for k in kd:
-                a, n = acc_star_curve(np.round(m.g[k][0], 9), m.g[k][1], eps); tot += a / n; cnt += 1
-            accs.append((tot / cnt).max())
+            cur = np.array([acc_star_curve(np.round(m.g[k][0], 9), m.g[k][1], eps)[0] / acc_star_curve(np.round(m.g[k][0], 9), m.g[k][1], eps)[1] for k in kd])
+            accs.append(cur.mean(0).max())
+            accboot.append(cur[idx].mean(1).max(-1))   # epsilon re-tuned in every resample
+        ba = accboot[0] - accboot[1]
         tieA = np.mean([1 - stats(*mA.g[k])[2] / stats(*mA.g[k])[4] for k in kd]); tieB = np.mean([1 - stats(*mB.g[k])[2] / stats(*mB.g[k])[4] for k in kd])
         ngroups = len(kd)
     else:  # dataset level: pool all items
@@ -94,11 +119,12 @@ def compare(study, aspect, level, nameA, mA, nameB, mB, rows):
         for p in (pA, pB):
             sub = rng.choice(len(p), min(len(p), 1200), replace=False)
             eps = eps_grid([p[sub]]); a, n = acc_star_curve(np.round(p, 9), h, eps); accs.append((a / n).max())
+        ba = acc_boot_dataset(mA, keys, h) - acc_boot_dataset(mB, keys, h)
         ngroups = len(keys)
     rows.append(dict(study=study, aspect=aspect, level=level, A=nameA, B=nameB, groups=ngroups,
                      tauA=tauA, tauB=tauB, dtau=tauA - tauB, dtau_lo=np.nanpercentile(bt, 2.5), dtau_hi=np.nanpercentile(bt, 97.5),
                      dD=dd, dD_lo=np.percentile(bd, 2.5), dD_hi=np.percentile(bd, 97.5),
-                     accA=accs[0], accB=accs[1], dacc=accs[0] - accs[1], tiesA=tieA, tiesB=tieB))
+                     accA=accs[0], accB=accs[1], dacc=accs[0] - accs[1], dacc_lo=np.percentile(ba, 2.5), dacc_hi=np.percentile(ba, 97.5), tiesA=tieA, tiesB=tieB))
 
 rows = []
 # ---------------- S1: G-Eval (Liu et al. 2023), GPT-4 on SummEval, summary level ----------------
