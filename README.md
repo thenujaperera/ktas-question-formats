@@ -1,3 +1,29 @@
+# Code for two papers
+
+This repository holds the code and data for two related papers.
+
+1. **"When Ties Change the Verdict: Re-scoring Published Comparisons of Large Language Model Judges"** (IEEE Access draft, Nov 2026). Code: `scripts/published_rescore/`. See the section below.
+2. **The KTAS question-format study** (`ktriage` package, described further down). Its cached decision-model answers and the rounding checks (`scripts/metric/`) also supply the supporting checks in Section VI of paper 1.
+
+## Paper 1: re-scoring published LLM-judge studies
+
+Download the released outputs into separate folders (they are not redistributed here):
+- G-Eval: https://github.com/nlpyang/geval (`results/gpt4_*_detailed.json`)
+- Wang et al.: https://github.com/krystalan/chatgpt_as_nlg_evaluator (`summeval.json`)
+- Shen et al.: https://github.com/DAMO-NLP-SG/LLM_summeval (`summeval.json` and the `gpt-4-0314/`, `gpt-3.5-turbo-0301/` output folders)
+- Chiang & Lee: https://github.com/d223302/A-Closer-Look-To-LLM-Evaluation (`summeval/` and `topical_chat/` result JSONs)
+
+Then run (about 8 minutes on a laptop):
+
+```bash
+python -I scripts/published_rescore/rescore_all.py <geval_dir> <wang_summeval.json> <shen_dir> <chiang_dir> out/
+python -I scripts/published_rescore/make_tables.py out/rescore_all.csv tables.json fig_scatter.pdf
+```
+
+`rescore_all.csv` has one row per comparison (tau-b, Somers' d and acc* with bootstrap intervals). `make_tables.py` builds Tables 3-7 and Fig. 1 of the paper. The shipped `rescore_all.csv` is the exact file behind the paper; `rescore_all_zero_sensitivity.csv` is the same-documents sensitivity check. Table 8 comes from `scripts/metric/gen_rounding.py`; Section VI-B uses the cached answers in `results_200/gemini-decision-1/`.
+
+---
+
 # ktas-pairwise-triage
 
 Does the **question format** change how well a language model (or a single-pass "decision model") ranks emergency patients by urgency? Same patients, same model, different formats: direct KTAS level vs pairwise comparisons aggregated with Bradley-Terry or AHP, scored against the **expert KTAS** label, with the cost in model calls.
