@@ -1,6 +1,6 @@
 # Tie credit in LLM-judge evaluation: code and data
 
-Code and data for **"How Much of a Language Model Judge's Kendall Tau Comes from Ties? Re-scoring Published Comparisons with Tie Credit"** (IEEE Access draft, Nov 2026).
+Code and data for **"Tie Credit: A Reporting Check for Kendall Tau in Language Model Judge Evaluation, with an Audit of Published Comparisons"** (IEEE Access draft, Nov 2026).
 
 ### The `tiecredit` tool
 
