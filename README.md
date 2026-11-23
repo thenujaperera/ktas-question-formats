@@ -23,8 +23,21 @@ python -m venv .venv && source .venv/bin/activate        # Windows: .venv\Script
 pip install -r requirements.txt
 bash scripts/fetch_data.sh      # downloads the four published studies (and the UCI wine data) into external/, ~1.3 GB
 bash reproduce.sh               # about 15 minutes on a laptop; prints OK / DIFF for every result and table
-bash reproduce.sh quick         # about 3 minutes: skips the slow bootstrap re-score (Tables 3-7, Fig. 1)
+bash reproduce.sh quick         # about 3 minutes: skips the slow bootstrap re-score (Tables VII-X, Fig. 1)
 ```
+
+**Windows (PowerShell).** `source` does not exist there, and the two scripts are bash scripts, so use Git for Windows' bash. Clone into a short path without spaces (for example `C:\tiecredit`):
+
+```powershell
+git clone https://github.com/thenujaperera/tie-credit-llm-judges C:\tiecredit; cd C:\tiecredit
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1          # if blocked: Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+pip install -r requirements.txt
+& "C:\Program Files\Git\bin\bash.exe" scripts/fetch_data.sh
+& "C:\Program Files\Git\bin\bash.exe" reproduce.sh quick      # drop "quick" for the full run
+```
+
+If a clone made before `.gitattributes` existed has Windows line endings (bash prints `\r: command not found`), run `git config core.autocrlf false; git rm --cached -rq .; git reset --hard` once on the fresh clone.
 
 `reproduce.sh` runs, in order: the tool self-tests; tie credit per method and the leaderboards (Tables IV-VI); the pairwise re-score with bootstrap intervals and Benjamini-Hochberg q-values (Tables VII-X, Fig. 1); the 2026 Gemini Decision 1 run **replayed from its cached answers** with `--max-calls 0`, so no request can be made (Table XI); the rounding checks on KTAS and wine (Tables XII-XIII); and the clinical example from cached answers. `scripts/verify_reproduction.py` then compares every output with the shipped file and rebuilds the paper tables (`results_tables/tables.json`). All random steps use fixed seeds. Table III (agreement with the published values) is checked by `scripts/published_rescore/check_published.py`.
 
