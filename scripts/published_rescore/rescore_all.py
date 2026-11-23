@@ -232,6 +232,11 @@ for corpus, aspects, abls in (("summeval", {"coh": "coherence", "con": "consiste
             compare("Chiang & Lee " + ("SummEval" if corpus == "summeval" else "Topical-Chat"), asp, "summary", a, M[a], b, M[b], rows)
 
 R = pd.DataFrame(rows)
+# Guard: a missing or wrongly laid-out input folder is skipped silently above, so check every study is present.
+_n = R.groupby("study").size(); print("comparisons per study:", _n.to_dict(), "total", len(R))
+for _st in ("G-Eval", "Wang et al.", "Shen et al.", "Chiang & Lee SummEval", "Chiang & Lee Topical-Chat"):
+    if not any(str(x).startswith(_st) for x in _n.index):
+        sys.exit(f"ERROR: no comparisons for {_st}; check the input folder (see README, scripts/fetch_data.sh)")
 R["disagree"] = np.sign(R.dtau) != np.sign(R.dD)
 R["D_sig"] = (R.dD_lo > 0) | (R.dD_hi < 0)
 R["tau_sig"] = (R.dtau_lo > 0) | (R.dtau_hi < 0)
