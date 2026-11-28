@@ -12,7 +12,8 @@ SP = pd.read_csv(f"{d}/select_by_tau_splits.csv")
 T = json.load(open(out))
 NAME = {"mode": "mode of 20", "mean": "mean of 20", "ChatGPT stars": "GPT-3.5 stars", "bart_score_cnn_src_hypo": "BARTScore-CNN",
         "bart_score_para_src_hypo": "BARTScore-CNN-Para", "GPT-4 rts": "GPT-4 rating", "ChatGPT rts": "GPT-3.5 rating"}
-STUDY = {"G-Eval (proxy)": "G-Eval", "Wang et al.": "Wang et al.", "Shen et al.": "Shen et al."}
+STUDY = {"G-Eval (proxy)": "G-Eval", "Wang et al.": "Wang", "Shen et al.": "Shen"}
+ASP = {"coherence": "coh.", "consistency": "cons.", "fluency": "flu.", "relevance": "rel."}
 nm = lambda x: NAME.get(x, x)
 
 # ---- Table: the 9 leaderboards whose leader changes
@@ -21,7 +22,7 @@ rows = ["| Leaderboard | Leader by τ-b | Leader by d | Pick of τ-b leader | Pi
 for r in L.itertuples():
     sig = "*" if r.lo > 0 else ""
     if r.study == "Shen et al." and r.aspect == "consistency": sig += "†"     # its Somers' D lead is at the edge of significance (Section V-F)
-    rows.append(f"| {STUDY[r.study]} {r.aspect} | {nm(r.tau_leader)} | {nm(r.d_leader)} | {r.bon_tau:.2f} | {r.bon_d:.2f} | "
+    rows.append(f"| {STUDY[r.study]} {ASP[r.aspect]} | {nm(r.tau_leader)} | {nm(r.d_leader)} | {r.bon_tau:.2f} | {r.bon_d:.2f} | "
                 f"{r.cost:+.3f} [{r.lo:+.3f}, {r.hi:+.3f}]{sig} | {100*r.gain_lost:.0f}% | {r.tied_top_tau:.1f} vs {r.tied_top_d:.1f} |")
 rows.append(f"| Mean | | | {L.bon_tau.mean():.2f} | {L.bon_d.mean():.2f} | {L.cost.mean():+.3f} | {100*L.gain_lost.mean():.0f}% | {L.tied_top_tau.mean():.1f} vs {L.tied_top_d.mean():.1f} |")
 T["TABLE_LEADERCOST"] = "\n".join(rows)
@@ -53,7 +54,7 @@ rows = ["| Leaderboard | Leaders differ | Cross-fit cost | τ-b pick worse / bet
 for r in L.itertuples():
     c = CF[(CF.study == r.study) & (CF.aspect == r.aspect)].iloc[0]; t = TB[(TB.study == r.study) & (TB.aspect == r.aspect)]
     tb = f"{t.cost_second.iloc[0]:+.3f}" if len(t) else "n/a"
-    rows.append(f"| {STUDY[r.study]} {r.aspect} | {100*c.differ:.0f}% | {c.cost_mean:+.3f} | {100*c.tau_pick_worse:.0f}% / {100*c.tau_pick_better:.0f}% | {r.cost_from_ties:+.3f} | {r.cost_from_order:+.3f} | {tb} |")
+    rows.append(f"| {STUDY[r.study]} {ASP[r.aspect]} | {100*c.differ:.0f}% | {c.cost_mean:+.3f} | {100*c.tau_pick_worse:.0f}% / {100*c.tau_pick_better:.0f}% | {r.cost_from_ties:+.3f} | {r.cost_from_order:+.3f} | {tb} |")
 rows.append(f"| Mean | {100*CF.differ.mean():.0f}% | {CF.cost_mean.mean():+.3f} | {100*CF.tau_pick_worse.mean():.0f}% / {100*CF.tau_pick_better.mean():.0f}% | {L.cost_from_ties.mean():+.3f} | {L.cost_from_order.mean():+.3f} | {TB.cost_second.mean():+.3f} |")
 T["TABLE_CROSSFIT"] = "\n".join(rows)
 
