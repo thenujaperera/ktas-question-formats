@@ -16,7 +16,7 @@ step "2. Tie credit per method and leaderboards (Tables IV-VI)"
 $PY -I scripts/published_rescore/tiecredit_all.py $X/geval/results $X/wang/data/summeval.json $X/shen $X/chiang/results $O/tc > $O/tc/log.txt
 
 if [ "${1:-}" != "quick" ]; then
-step "3. Pairwise re-score of the four studies with bootstrap (Tables VII and XI-XIII, Fig. 1) - slow"
+step "3. Pairwise re-score of the four studies with bootstrap (Tables VII and XIII-XV, Fig. 1) - slow"
 $PY -I scripts/published_rescore/rescore_all.py $X/geval/results $X/wang/data/summeval.json $X/shen $X/chiang/results $O/rescore > $O/rescore/log.txt
 fi
 
@@ -29,7 +29,7 @@ $PY scripts/current_judge/run_current_judge.py --judge decision --model gemini-d
     --geval-dir $X/geval/results --out $O/current --max-calls 0
 $PY scripts/current_judge/analyse_current_judge.py $O/current/decision_gemini-decision-1_scores.csv > $O/current/log.txt
 
-step "6. Appendix B: rounding ordinary models (Tables XV-XVI)"
+step "6. Appendix B: rounding ordinary models (Tables XVII-XVIII)"
 (cd $O/metric && $PY ../../scripts/metric/gen_rounding.py ktas ../../data/ktas_data.csv > log_ktas.txt \
   && $PY ../../scripts/metric/acc_rounding.py ../../scripts/metric/gen_rounding.py ktas ../../data/ktas_data.csv >> log_ktas.txt)
 for c in red white; do
@@ -46,12 +46,13 @@ $PY scripts/real_flip.py > $O/real_flip_log.txt
 step "8. Table III: our tau-b against the values printed in the four papers"
 $PY -I scripts/published_rescore/check_published.py $O/tc/tiecredit_methods.csv
 
-step "8b. Downstream cost (best-of-16, system ranking) and selection by tau-b: no API calls, about 1 minute"
+step "8b. Downstream cost (best-of-16, system ranking), leaders chosen on half the documents, tie-breaking and predictors of the cost, and selection by tau-b: no API calls, about 2 minutes"
 mkdir -p $O/downstream
 $PY -I scripts/downstream/downstream.py $X/geval/results $X/wang/data/summeval.json $X/shen $X/chiang/results \
     scripts/published_rescore/rescore_all.csv results_current_judge/decision_gemini-decision-1_scores.csv $O/downstream > $O/downstream/log.txt
 $PY -I scripts/downstream/leader_cost.py scripts/published_rescore/leaderboards.csv $O/downstream >> $O/downstream/log.txt
 $PY -I scripts/downstream/select_by_tau.py $X/geval/results results_current_judge/decision_gemini-decision-1_scores.csv $O/downstream >> $O/downstream/log.txt
+$PY -I scripts/downstream/predict_cost.py $O/downstream scripts/published_rescore/tiecredit_methods.csv >> $O/downstream/log.txt
 # the paper's downstream tables and quoted numbers are rebuilt from these CSVs and checked in step 9
 echo '{}' > $O/downstream/tables_check.json
 $PY -I scripts/downstream/make_tables_downstream.py $O/downstream $O/downstream/tables_check.json > $O/downstream/claims_log.txt
