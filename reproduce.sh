@@ -46,5 +46,13 @@ $PY scripts/real_flip.py > $O/real_flip_log.txt
 step "8. Table III: our tau-b against the values printed in the four papers"
 $PY -I scripts/published_rescore/check_published.py $O/tc/tiecredit_methods.csv
 
+step "8b. Downstream cost (best-of-n, system level) and selection by tau-b: no API calls"
+mkdir -p $O/downstream
+$PY -I scripts/downstream/downstream.py $X/geval/results $X/wang/data/summeval.json $X/shen $X/chiang/results \
+    scripts/published_rescore/rescore_all.csv results_current_judge/decision_gemini-decision-1_scores.csv $O/downstream > $O/downstream/log.txt
+$PY -I scripts/downstream/leader_cost.py scripts/published_rescore/leaderboards.csv $O/downstream >> $O/downstream/log.txt
+$PY -I scripts/downstream/select_by_tau.py $X/geval/results results_current_judge/decision_gemini-decision-1_scores.csv $O/downstream >> $O/downstream/log.txt
+for f in results_downstream/*.csv; do cmp -s "$f" "$O/downstream/$(basename $f)" && echo "same: $f" || echo "DIFFERENT: $f"; done
+
 step "9. Compare everything with the shipped files and the paper tables"
 $PY scripts/verify_reproduction.py $O
