@@ -125,6 +125,22 @@ def per_doc(m, keys):
         hit.append(np.mean(h2[T] == h2.max())); top.append(T.sum())
     return np.array(pick), np.array(best), np.array(avg), np.array(hit), np.array(top)
 
+
+from math import comb
+def tie_parts(m, keys):
+    """Split the best-of-n regret into misranking and tie loss. For each document, with T the judge's tied top set:
+    tie loss = max human score in T minus mean human score in T (what random tie-breaking gives away);
+    misranking = best human score minus max human score in T (what the judge's order gives away even with perfect tie-breaking);
+    predicted tie loss = what a tied top set of the same size k would give away if it were a random k-subset of the outputs:
+    E[max of a random k-subset] - mean(h), computed exactly from the document's human scores."""
+    loss, mis, pred = [], [], []
+    for k in keys:
+        _, p, h = m[k]; p = np.round(np.asarray(p, float), 9); h = np.asarray(h, float)
+        p2 = np.where(~np.isnan(p), p, -np.inf); T = p2 == p2.max(); kk = int(T.sum()); n = len(h)
+        loss.append(h[T].max() - h[T].mean()); mis.append(h.max() - h[T].max())
+        hs = np.sort(h); pred.append(sum(hs[i - 1] * comb(i - 1, kk - 1) for i in range(kk, n + 1)) / comb(n, kk) - h.mean())
+    return np.mean(loss), np.mean(mis), np.mean(pred)
+
 def sys_tau(m, keys, w=None):
     """Kendall tau-b between the judge's system means and the human system means over docs in keys (weights w)."""
     sysl = sorted({s for k in keys for s in m[k][0]}, key=str)
@@ -151,7 +167,8 @@ for (study, asp, name), m in M.items():
     rows.append(dict(study=study, aspect=asp, method=name, docs=len(keys), n_per_doc=float(np.mean([len(m[k][1]) for k in keys])),
                      bestofn_human=pick.mean(), oracle=best.mean(), random=avg.mean(), regret=(best - pick).mean(),
                      gain_share=(pick - avg).mean() / (best - avg).mean(), top1_hit=hit.mean(), tied_top=top.mean(),
-                     systems=nsys, sys_tau=tau_from(P, H, N, np.ones(len(keys))) if nsys >= 3 else np.nan))
+                     systems=nsys, sys_tau=tau_from(P, H, N, np.ones(len(keys))) if nsys >= 3 else np.nan,
+                     **dict(zip(("tie_loss", "misrank", "tie_loss_pred"), tie_parts(m, keys)))))
 T = pd.DataFrame(rows)
 os.makedirs(out_dir, exist_ok=True); T.to_csv(f"{out_dir}/downstream_methods.csv", index=False)
 
@@ -212,3 +229,74 @@ A = O[~O.disagree]
 x = A
 print("=== Agreements:", len(A), "best-of-n: tau/D-preferred better", int((x.bon_for_tau > 0).sum()), "worse", int((x.bon_for_tau < 0).sum()))
 print(T.round(3).to_string())
+
+# =====================================================================================================
+# v24 additions (all use the same loaded answers; separate random stream, so nothing above changes)
+#  (1) leader_crossfit.csv: the leaderboard test with the leader chosen on one random half of the documents and the
+#      pick scored on the other half (500 splits), as in the read-out selection test.
+#  (2) tiebreak.csv: the best-of-n cost when ties are broken by a second signal instead of at random.
+# =====================================================================================================
+rng2 = np.random.default_rng(1)
+pdir = os.path.dirname(pairs_fp)
+TCm = pd.read_csv(os.path.join(pdir, "tiecredit_methods.csv")); LBd = pd.read_csv(os.path.join(pdir, "leaderboards.csv"))
+
+def tstats(p, h):
+    p = np.round(np.asarray(p, float), 9); h = np.asarray(h, float); n = len(p); n0 = n * (n - 1) / 2
+    def ties_(x): c = np.array(list(Counter(x).values())); return (c * (c - 1) / 2).sum()
+    A, Bh = n0 - ties_(p), n0 - ties_(np.round(h, 9))
+    if Bh == 0: return np.nan, np.nan, A, Bh
+    if A == 0: return np.nan, 0.0, A, Bh
+    t = kendalltau(p, h).statistic
+    return t, t * np.sqrt(A / Bh), A, Bh
+
+SPL = 500; cf = []
+for r in LBd[LBd.top_changes].itertuples():
+    mem = list(TCm[(TCm.study == r.study) & (TCm.aspect == r.aspect)].method); level = TCm[(TCm.study == r.study) & (TCm.aspect == r.aspect)].level.iloc[0]
+    keys = sorted(set.intersection(*[set(M[(r.study, r.aspect, nm)]) for nm in mem]))
+    pick = {nm: per_doc(M[(r.study, r.aspect, nm)], keys)[0] for nm in mem}
+    if level == "summary":
+        st = {nm: np.array([tstats(M[(r.study, r.aspect, nm)][k][1], M[(r.study, r.aspect, nm)][k][2]) for k in keys])[:, :2] for nm in mem}
+        lead = lambda idx, col, nm_=mem: nm_[int(np.argmax([np.nanmean(st[nm][idx, col]) for nm in nm_]))]
+    else:
+        P_ = {nm: [np.asarray(M[(r.study, r.aspect, nm)][k][1], float) for k in keys] for nm in mem}; H_ = {nm: [np.asarray(M[(r.study, r.aspect, nm)][k][2], float) for k in keys] for nm in mem}
+        def lead(idx, col, nm_=mem):
+            v = []
+            for nm in nm_:
+                t, d, *_ = tstats(np.concatenate([P_[nm][i] for i in idx]), np.concatenate([H_[nm][i] for i in idx])); v.append((t, d)[col])
+            return nm_[int(np.argmax(v))]
+    full = np.arange(len(keys))
+    assert lead(full, 0) == r.top_tau and lead(full, 1) == r.top_d, (r.study, r.aspect, lead(full, 0), lead(full, 1))
+    cost = []; differ = []
+    for s in range(SPL):
+        perm = rng2.permutation(len(keys)); dev, test = np.sort(perm[: len(keys) // 2]), np.sort(perm[len(keys) // 2:])
+        a, b = lead(dev, 0), lead(dev, 1)
+        cost.append(pick[b][test].mean() - pick[a][test].mean()); differ.append(a != b)
+    cost, differ = np.array(cost), np.array(differ)
+    cf.append(dict(study=r.study, aspect=r.aspect, tau_leader=r.top_tau, d_leader=r.top_d, splits=SPL, differ=differ.mean(),
+                   cost_mean=cost.mean(), cost_lo=np.percentile(cost, 2.5), cost_hi=np.percentile(cost, 97.5),
+                   tau_pick_worse=(cost > 1e-12).mean(), tau_pick_better=(cost < -1e-12).mean(),
+                   cost_when_differ=cost[differ].mean() if differ.any() else np.nan))
+CF = pd.DataFrame(cf); CF.to_csv(f"{out_dir}/leader_crossfit.csv", index=False)
+print("=== Leader chosen on one half, picks scored on the other half (500 splits)"); print(CF.round(3).to_string())
+
+# ---- (2) tie-break sensitivity: the same best-of-n, but ties broken by a second signal
+def pick_second(m, sec, keys):
+    out = []
+    for k in keys:
+        _, p, h = m[k]; _, q, _ = sec[k]; p = np.round(np.asarray(p, float), 9); q = np.round(np.asarray(q, float), 9); h = np.asarray(h, float)
+        T = p == p.max(); T2 = T & (q == q[T].max()); out.append(h[T2].mean())
+    return np.array(out)
+tb = []
+for r in LBd[LBd.top_changes].itertuples():
+    sec_name = {"G-Eval (proxy)": "mean", "Wang et al.": "bart_score_src_hypo"}.get(r.study)
+    if sec_name is None or r.top_tau == sec_name: continue
+    mt, md, ms = M[(r.study, r.aspect, r.top_tau)], M[(r.study, r.aspect, r.top_d)], M[(r.study, r.aspect, sec_name)]
+    keys = sorted(set(mt) & set(md) & set(ms))
+    a, b, c = per_doc(mt, keys)[0], per_doc(md, keys)[0], pick_second(mt, ms, keys)
+    ix = rng2.integers(0, len(keys), (2000, len(keys)))
+    bc = (b - c)[ix].mean(1)
+    tb.append(dict(study=r.study, aspect=r.aspect, tau_leader=r.top_tau, d_leader=r.top_d, second_signal=sec_name,
+                   bon_random=a.mean(), bon_second=c.mean(), bon_d_leader=b.mean(),
+                   cost_random=(b - a).mean(), cost_second=(b - c).mean(), cost_second_lo=np.percentile(bc, 2.5), cost_second_hi=np.percentile(bc, 97.5)))
+TB = pd.DataFrame(tb); TB.to_csv(f"{out_dir}/tiebreak.csv", index=False)
+print("=== Best-of-n cost of the tau-b leader when its ties are broken by a second signal"); print(TB.round(3).to_string())

@@ -12,7 +12,10 @@ for r in L[L.top_changes].itertuples():
                      gain_lost=(a.loc[r.top_d, "bestofn_human"] - a.loc[r.top_tau, "bestofn_human"]) / (a.loc[r.top_d, "oracle"] - a.loc[r.top_d, "random"]),
                      hit_tau=a.loc[r.top_tau, "top1_hit"], hit_d=a.loc[r.top_d, "top1_hit"],
                      sys_tau_of_tau_leader=a.loc[r.top_tau, "sys_tau"], sys_tau_of_d_leader=a.loc[r.top_d, "sys_tau"],
-                     tied_top_tau=a.loc[r.top_tau, "tied_top"], tied_top_d=a.loc[r.top_d, "tied_top"]))
+                     tied_top_tau=a.loc[r.top_tau, "tied_top"], tied_top_d=a.loc[r.top_d, "tied_top"],
+                     # the cost splits exactly into tie loss (random tie-breaking) and misranking (the judge's order)
+                     cost_from_ties=a.loc[r.top_tau, "tie_loss"] - a.loc[r.top_d, "tie_loss"],
+                     cost_from_order=a.loc[r.top_tau, "misrank"] - a.loc[r.top_d, "misrank"]))
 X = pd.DataFrame(rows); X.to_csv(f"{sys.argv[2]}/leader_cost.csv", index=False)
 pd.set_option("display.width", 250); print(X.round(3).to_string())
 print(f"tau-b leader picks worse summaries in {(X.cost > 0).sum()} of {len(X)}; significantly in {(X.lo > 0).sum()}; mean cost {X.cost.mean():.3f}")
